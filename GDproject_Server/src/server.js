@@ -8,9 +8,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const auth = require('./auth');
+const router = require('./router');
 
-app.use('/auth', auth);
+app.use('/', router);
 
 app.listen(8080, () => {
     console.log('Server is running at 8080');
