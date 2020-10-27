@@ -5,9 +5,7 @@ const op = sequelize.Op;
 exports.getPosts = async (req, res) => {
     try {
 
-        if (req.query.keyword) {
-            const posts = models.Post.
-        }
+        
 
         return res.status(200).json({
             message: "게시글 목록 불러오기 성공!",
@@ -29,11 +27,10 @@ exports.createPost = async (req, res) => {
             content: body.content,
             userName: body.userName,
             userId: body.userId,
-            createAt: body.createAt,
         });
 
         return res.status(200).json({
-            message: '게시 성공',
+            message: '게시글 게시 성공',
         });
         
     } catch ( err ) {

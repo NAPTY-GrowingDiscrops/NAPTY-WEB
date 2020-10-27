@@ -21,11 +21,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    profile: {
-      field: 'profile',
-      type: DataTypes.STRING,
-      allowNull: true,
+    emailReq: {
+      field: 'email_req',
+      type: DataTypes.BOOLEAN,
+      allowNull: true, 
     },
+    admin: {
+      field: 'admin',
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    }
   }, {
     tableName: 'user',
     timestamps: false,
