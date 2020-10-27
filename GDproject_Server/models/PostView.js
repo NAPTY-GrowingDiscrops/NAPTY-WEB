@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define('comment', {
+  const PostView = sequelize.define('post_view', {
     idx: {
       field: 'idx',
       type: DataTypes.INTEGER,
@@ -12,20 +12,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    userName: {
-      field: 'user_name',
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    comment: {
-      field: 'comment',
-      type: DataTypes.TEXT,
+    view: {
+      field: 'view',
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   }, {
-    tableName: 'comment',
-    timestamps: true,
+    tableName: 'post_view',
+    timestamps: false,
   });
 
-  return Comment;
+  return PostView;
 }

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const SComment = sequelize.define('scomment', {
+  const Recomment = sequelize.define('recomment', {
     idx: {
       field: 'idx',
       type: DataTypes.INTEGER,
@@ -12,25 +12,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    commentIdx: {
+      field: 'comment_idx',
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     userName: {
       field: 'user_name',
       type: DataTypes.STRING,
       allowNull: false,
     },
-    comment: {
-      field: 'comment',
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    createAt: {
-      field: 'create_at',
-      type: DataTypes.TIME,
-      allowNull: true,
-    },
   }, {
-    tableName: 'scomment',
-    timestamps: false,
+    tableName: 'recomment',
+    timestamps: true,
   });
 
-  return SComment;
+  return Recomment;
 }

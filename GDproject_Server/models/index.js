@@ -13,15 +13,19 @@ const sequelize = new Sequelize('gdproject', 'root', '1234', {
 const UserM = require('./User');
 const PostM = require('./Post');
 const CommentM = require('./Comment'); 
-const SPostM = require('./SPost');
-const SCommentM = require('./SComment');
+const RecommentM = require('./Recomment');
+const PostLikeM = require('./PostLike');
+const PostHateM = require('./PostHate');
+const PostViewM = require('./PostView');
 
 module.exports = {
   User: UserM(sequelize, Sequelize),
   Post: PostM(sequelize, Sequelize),
   Comment: CommentM(sequelize, Sequelize),
-  SPost: SPostM(sequelize, Sequelize),
-  SComment: SCommentM(sequelize, Sequelize),
+  Recomment: RecommentM(sequelize, Sequelize),
+  PostLike: PostLikeM(sequelize, Sequelize),
+  PostHate: PostHateM(sequelize, Sequelize),
+  PostView: PostViewM(sequelize, Sequelize),
 }
 
 sequelize.sync().then(() => {
