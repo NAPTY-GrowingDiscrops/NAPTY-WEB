@@ -19,7 +19,7 @@ const ScommM = require('./ServicePostComment');
 
 module.exports = {
   User: UserM(sequelize, Sequelize),
-  // Gpost: GpostM(sequelize, Sequelize),
+  Gpost: GpostM(sequelize, Sequelize),
   // Gcomment: GcommM(sequelize, Sequelize),
   // Spost: SpostM(sequelize, Sequelize),
   // Scomment: ScommM(sequelize, Sequelize)

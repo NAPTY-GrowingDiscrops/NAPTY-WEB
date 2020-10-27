@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
-    const Gpost = sequelize.define('Gpost', {
+    const Gpost = sequelize.define('game_pos', {
         idx: {
             field: 'idx',
-            type: DataTypes.INTGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true 
         },
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         createAt: {
             field: 'create_at',
-            type: DataTypes.DATETIME
+            type: DataTypes.TIME,
         },
     }, {
         tableName: 'game_post',
