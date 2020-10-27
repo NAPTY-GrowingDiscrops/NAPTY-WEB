@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define('post', {
+  const SPost = sequelize.define('spost', {
     idx: {
       field: 'idx',
       type: DataTypes.INTEGER,
@@ -33,9 +33,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
   }, {
-    tableName: 'post',
+    tableName: 'spost',
     timestamps: false,
   });
 
-  return Post;
+  return SPost;
 }

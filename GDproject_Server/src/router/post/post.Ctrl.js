@@ -1,10 +1,10 @@
 const models = require('../../../models');
 
-module.postPost = async (req, res) => {
+exports.createPost = async (req, res) => {
     const { body } = req;
 
     try {
-        await models.Gpost.create({
+        await models.Post.create({
             title: body.title,
             content: body.content,
             userName: body.userName,
