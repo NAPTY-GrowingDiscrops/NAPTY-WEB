@@ -1,9 +1,10 @@
 const models = require('../../../models');
+const secretObj = require('../../config/jwt');
 
+const path = require('path');
 const sequelize = require('sequelize');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
-const secretObj = require('../../config/jwt');
 
 const op = sequelize.Op;
 
@@ -183,14 +184,14 @@ exports.mailVerify = async (req, res) => {
             from: 'mailverify1234@gmail.com',
             to: email,
             subject: 'Growing Discrops메일 인증을 해주세요!',
-            html: ' <center> <p>아래의 링크를 클릭하여 email인증을 해주세요!</p> <br/>' + "<a href='http://10.80.161.119:8000/api/email/mailCheck/?email="+ "token=" + token + "'>인증하기</a> <br/>" + "<p>만약 자신이 요청한 것이 아니면</p> <a href='https://www.facebook.com/profile.php?id=100010144092898'>FaceBook</a>" + "<p>로 문의주세요</p>",
+            html: ' <center> <p>아래의 링크를 클릭하여 email인증을 해주세요!</p> <br/>' + "<a href='http://10.80.161.119:8080/auth/email/mailCheck/?token=" + token + "'>인증하기</a> <br/>" + "<p>만약 자신이 요청한 것이 아니면</p> <a href='https://www.facebook.com/profile.php?id=100010144092898'>FaceBook</a>" + "<p>로 문의주세요</p>",
         };
 
         transporter.sendMail(mailOption, function(err, info) {
             if (err){
                 console.log(err);
             } else {
-                console.log('Email send: ' = info.response);
+                console.log('Email send: ' + info.response);
             }
         });
 
@@ -208,13 +209,13 @@ exports.mailVerify = async (req, res) => {
 
 exports.mailCheck = async (req, res) => {
     const token = req.query.token;
-    const emailDecode = jwt.verify(token, secretObj.secert); 
+    const emailDecoded = jwt.verify(token, secretObj.secert); 
 
     try {
 
         const email = await models.User.findOne({
             where: {
-                email: emailDecode,
+                email: emailDecoded.email,
             },
         });
 
@@ -225,14 +226,15 @@ exports.mailCheck = async (req, res) => {
         }
 
         await models.User.update({
-            verify: true,
+            emailReq: true,
         }, {
             where: {
-                email,
+                email: emailDecoded.email,
             },
         });
 
-        return res.sendFile('../../../public/mailCheck.html');
+        return res.status(200).sendFile('mailCheck.html', {
+            'root': 'src/public/mail'});
 
     } catch (err) {
         console.log(err);

@@ -8,7 +8,7 @@ router.post('/register/mailCheck', authCtrl.mailCheck);
 router.post('/register/nameCheck', authCtrl.nameCheck);
 router.post('/register/idCheck', authCtrl.idCheck);
 
-router.post('/email/mailverify', authCtrl.mailVerify);
+router.post('/email/mailVerify', authCtrl.mailVerify);
 router.get('/email/mailCheck', authCtrl.mailCheck);
 
 module.exports = router;
