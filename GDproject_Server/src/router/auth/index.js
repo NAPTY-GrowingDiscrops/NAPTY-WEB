@@ -2,6 +2,7 @@ const router = require('express').Router();
 const authCtrl = require('./auth.Ctrl');
 
 router.post('/login', authCtrl.login);
+router.post('/login/verifyCheck', authCtrl.verifyCheck)
 
 router.post('/register', authCtrl.register);
 router.post('/register/mailCheck', authCtrl.mailCheck);

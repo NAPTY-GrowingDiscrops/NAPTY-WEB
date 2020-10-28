@@ -37,6 +37,35 @@ exports.login = async (req, res) => {
     }
 }
 
+exports.verifyCheck = async (req, res) => {
+    const email = req.params.email;
+
+    try {
+
+        const check = await models.User.findOne({
+            where: {
+                email: email,
+            },
+        });
+
+        if (check.emailReq === false) {
+            return res.status(401).json({
+                message: "이메일 인증이 되지 않은 계정입니다.",
+            });
+        }
+
+        return res.status(200).json({
+            message: "이메일 인증이 완료된 계정입니다!",
+        });
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({
+            message: "서버 오류",
+        });
+    }
+}
+
 exports.register = async (req, res) => {
     const { body }  = req;
 
@@ -243,3 +272,4 @@ exports.mailCheck = async (req, res) => {
         });
     }
 }
+
