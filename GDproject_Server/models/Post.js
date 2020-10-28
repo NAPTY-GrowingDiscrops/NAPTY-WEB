@@ -22,9 +22,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    createdAt: {
+      field: 'created_at',
+      type: DataTypes.DATE,
+      allowNull: false,
+      defultValue: Date.now,
+    },
   }, {
     tableName: 'post',
-    timestamps: true,
+    timestamps: false,
   });
 
   return Post;

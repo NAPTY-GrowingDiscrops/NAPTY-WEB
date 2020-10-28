@@ -1,7 +1,6 @@
 const models = require('../../../models');
 const secretObj = require('../../config/jwt');
 
-const path = require('path');
 const sequelize = require('sequelize');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
@@ -277,5 +276,5 @@ exports.mailCheck = async (req, res) => {
             message: "서버 오류",
         });
     }
-}
 
+}
