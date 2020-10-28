@@ -218,7 +218,21 @@ exports.mailCheck = async (req, res) => {
             },
         });
 
-        
+        if (!email) {
+            return res.status(401).json({
+                message: "잘못된 요청입니다.",
+            });
+        }
+
+        await models.User.update({
+            verify: true,
+        }, {
+            where: {
+                email,
+            },
+        });
+
+        return res.sendFile('../../../public/mailCheck.html');
 
     } catch (err) {
         console.log(err);
