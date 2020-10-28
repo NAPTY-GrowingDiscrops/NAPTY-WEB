@@ -38,15 +38,21 @@ exports.login = async (req, res) => {
 }
 
 exports.verifyCheck = async (req, res) => {
-    const email = req.params.email;
+    const { body } = req;
 
     try {
 
         const check = await models.User.findOne({
             where: {
-                email: email,
+                email: body.email,
             },
         });
+
+        if (!check.emailReq) {
+            return res.status(401).json({
+                message: "이메일을 잘못 입력하였습니다.",
+            });
+        }
 
         if (check.emailReq === false) {
             return res.status(401).json({
@@ -120,7 +126,7 @@ exports.idCheck = async (req, res) => {
     }
 }
 
-exports.mailCheck = async (req, res) => {
+exports.mailDupCheck = async (req, res) => {
     const { body } = req;
 
     try {

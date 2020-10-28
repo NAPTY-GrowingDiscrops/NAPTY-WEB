@@ -5,7 +5,7 @@ router.post('/login', authCtrl.login);
 router.post('/login/verifyCheck', authCtrl.verifyCheck)
 
 router.post('/register', authCtrl.register);
-router.post('/register/mailCheck', authCtrl.mailCheck);
+router.post('/register/mailCheck', authCtrl.mailDupCheck);
 router.post('/register/nameCheck', authCtrl.nameCheck);
 router.post('/register/idCheck', authCtrl.idCheck);
 
