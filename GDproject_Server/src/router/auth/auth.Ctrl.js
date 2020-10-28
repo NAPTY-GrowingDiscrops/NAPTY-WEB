@@ -18,7 +18,7 @@ exports.login = async (req, res) => {
         }
 
         return res.status(401).json({
-            message: "로그인 실패",
+            message: "ID나 비밀번호를 확인해 주세요",
         });
 
     } catch (err) {
@@ -67,12 +67,12 @@ exports.idCheck = async (req, res) => {
 
         if (user) {
            return res.status(401).json({
-                message: "중복된 아이디 입니다.",
+                message: "중복된 ID입니다.",
            });
         }
 
         return res.status(200).json({
-            message: "id확인 완료!",
+            message: "사용할 수 있는 ID입니다!",
         });
 
     } catch (err) {
@@ -95,12 +95,12 @@ exports.mailCheck = async (req, res) => {
 
         if (email) {
             return res.status(401).json({
-                message: "중복된 이메일 입니다.",
+                message: "이미 있는 email입니다",
             });
         }
 
         return res.status(200).json({
-            message: "email확인 완료!",
+            message: "사용할 수 있는 email입니다!",
         });
 
     } catch (err) {
@@ -124,9 +124,13 @@ exports.nameCheck = async (req, res) => {
 
         if (name) {
             return res.status(401).json({
-                message: "이름 확인 완료!",
+                message: "이미 있는 닉네임입니다",
             });
         }
+
+        return res.status(200).json({
+            message: "사용할 수 있는 닉네임입니다!",
+        });
 
     } catch (err) {
         console.log(err);
@@ -134,4 +138,8 @@ exports.nameCheck = async (req, res) => {
             message: "서버 오류",
         });
     }
+}
+
+exports.mailVerify = async (req, res) => {
+    
 }
