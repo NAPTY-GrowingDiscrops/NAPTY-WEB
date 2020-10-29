@@ -3,13 +3,12 @@ const authMiddleware = require('../../middleware/authMiddleware');
 
 const sequelize = require('sequelize');
 
-const op = sequelize.Op;
+const Op = sequelize.Op;
 
 exports.getPosts = async (req, res) => {
-    keyword = req.params.keyword
+    keyword = req.query.keyword
 
     try {
-
         let posts = [];
 
         if(keyword) {
@@ -39,9 +38,7 @@ exports.getPosts = async (req, res) => {
 
         return res.status(200).json({
             message: "게시글 목록 불러오기 성공!",
-            data: {
-                posts,
-            },
+            posts,
         });
 
     } catch ( err ) {
@@ -53,10 +50,26 @@ exports.getPosts = async (req, res) => {
 }
 
 exports.getPost = async (req, res) => {
+    const idx = req.params.idx;
 
     try {
 
-        
+        const data = await models.User.findOne({
+            where: {
+                idx: idx,
+            },
+        });
+
+        if (!data) {
+            return res.status(401).json({
+                message: "잘못된 요청입니다.",
+            });
+        }
+
+        return res.status(200).json({
+            message: "게시글 불러오기 성공!",
+            post,
+        });
 
     } catch (err) {
         console.log(err);
