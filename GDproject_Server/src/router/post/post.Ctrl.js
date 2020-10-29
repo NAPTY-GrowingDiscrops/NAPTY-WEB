@@ -206,9 +206,11 @@ exports.modifyPost = async (req, res) => {
             },
         });
 
-        if (post.userName === user.name) {
+        if (!(post.userName === user.name)) {
             return res.status(409).json({
                 message: "자신의 게시물이 아닌데요?",
+                user,
+                post,
             });
         }
 
