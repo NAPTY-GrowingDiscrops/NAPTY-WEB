@@ -8,5 +8,6 @@ router.get('/read/:idx', postCtrl.getPost);
 router.post('/create', postCtrl.createPost);
 
 router.post('/like', postCtrl.like);
+router.post('/hate', postCtrl.hate);
 
 module.exports = router;
