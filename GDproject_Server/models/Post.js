@@ -22,6 +22,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    view: {
+      field: 'view',
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
     createdAt: {
       field: 'created_at',
       type: DataTypes.DATE,

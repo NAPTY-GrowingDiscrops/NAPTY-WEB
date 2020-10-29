@@ -7,4 +7,6 @@ router.get('/read/:idx', postCtrl.getPost);
 
 router.post('/create', postCtrl.createPost);
 
+router.post('/like', postCtrl.like);
+
 module.exports = router;
