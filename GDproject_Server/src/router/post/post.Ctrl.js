@@ -77,6 +77,7 @@ exports.getPost = async (req, res) => {
             where: {
                 idx: idx,
             },
+            raw: true,
         });
 
         if (!post) {
@@ -84,6 +85,43 @@ exports.getPost = async (req, res) => {
                 message: "잘못된 요청입니다.",
             });
         }
+
+        const postLike = await models.PostLike.findAll({
+            where: {
+                postIdx: post.idx,
+            },
+            raw: true,
+        });
+
+        post.liked = false;
+        if (req.user) {
+            for (const pl of postLike) {
+                if (pl.userId == req.user.id) {
+                    post.liked = true;
+                    break;
+                }
+            }
+        }
+
+        post.likeCount = postLike.length;
+
+        const postHate = await models.PostHate.findAll({
+            where: {
+                postIdx: post.idx,
+            },
+            raw: true,
+        });
+
+        post.hated = false;
+        if (req.user) {
+            for (const pl of postHate) {
+                if (pl.userId == req.user.id) {
+                    post.hated = true;
+                    break;
+                }
+            }
+        }
+        post.hateCount = postHate.length;
 
         return res.status(200).json({
             message: "게시글 불러오기 성공!",
