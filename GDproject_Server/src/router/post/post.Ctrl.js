@@ -1,15 +1,11 @@
 const models = require('../../../models');
-const authMiddleware = require('../../middleware/authMiddleware');
-
 const sequelize = require('sequelize');
-const Post = require('../../../models/Post');
-
 const Op = sequelize.Op;
 
 exports.getPosts = async (req, res) => {
     keyword = req.query.keyword
-
     try {
+
         let posts = [];
 
         if(keyword) {
@@ -35,6 +31,28 @@ exports.getPosts = async (req, res) => {
                 raw: true,
             });
 
+        }
+
+        for (const post of posts) {
+            const postLike = await models.PostLike.findAll({
+                where: {
+                    postIdx: post.idx,
+                },
+                raw: true,
+            });
+
+            post.likeCount = postLike.length;
+        }
+
+        for (const post of posts) {
+            const postHate = await models.PostHate.findAll({
+                where: {
+                    postIdx: post.idx,
+                },
+                raw: true,
+            });
+
+            post.HateCount = postHate.length;
         }
 
         return res.status(200).json({
@@ -167,8 +185,10 @@ exports.hate = async (req, res) => {
         }
 
         const existHate = await models.PostHate.findOne({
-            postIdx,
-            userId: user.id,
+            where: {
+                postIdx,
+                userId: user.id,
+            },
         });
 
         if (existHate) {
