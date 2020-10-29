@@ -1,5 +1,8 @@
 const models = require('../../../models');
+const authMiddleware = require('../../middleware/authMiddleware');
+
 const sequelize = require('sequelize');
+
 const op = sequelize.Op;
 
 exports.getPosts = async (req, res) => {
@@ -50,7 +53,10 @@ exports.getPosts = async (req, res) => {
 }
 
 exports.getPost = async (req, res) => {
+
     try {
+
+        
 
     } catch (err) {
         console.log(err);
@@ -58,17 +64,25 @@ exports.getPost = async (req, res) => {
             message: "서버 오류",
         });
     }
+
 }
 
 exports.createPost = async (req, res) => {
-    const { body } = req;
+    const { body, user } = req;
 
-    try {
+        try {
+
+            if (!user) {
+                return res.status(401).json({
+                    message: "먼저 로그인을 해주세요!",
+                });
+            }
+
         await models.Post.create({
             title: body.title,
             content: body.content,
-            userName: body.userName,
-            userId: body.userId,
+            userName: user.name,
+            userId: user.id,
         });
 
         return res.status(200).json({

@@ -30,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
       field: 'admin',
       type: DataTypes.BOOLEAN,
       allowNull: true,
-    }
+      defultValue: false,
+    },
   }, {
     tableName: 'user',
     timestamps: false,

@@ -1,16 +1,15 @@
 const models = require('../../../models');
-const secretObj = require('../../config/jwt');
+const secretObjM = require('../../config/jwtMail');
+const secretObjA = require('../../config/jwtAuth');
 
-const sequelize = require('sequelize');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
-
-const op = sequelize.Op;
 
 exports.login = async (req, res) => {
     const { body } = req;
 
     try {
+
         const user = await models.User.findOne({
             where: {
                 id: body.id,
@@ -18,14 +17,21 @@ exports.login = async (req, res) => {
             },
         });
 
-        if (user) {
-            return res.status(200).json({
-                message: "로그인 성공!",
+        if (!user) {
+            return res.status(401).json({
+                message: "ID나 비밀번호를 확인해 주세요!",
             });
         }
+        
+        const tokenA = jwt.sign({
+            id: user.id,
+        },
+        secretObjA.secret, {
+            expiresIn: '30d',
+        });
 
-        return res.status(401).json({
-            message: "ID나 비밀번호를 확인해 주세요",
+        return res.status(200).cookie('auth', tokenA).json({
+            message: "로그인 성공",
         });
 
     } catch (err) {
@@ -43,13 +49,13 @@ exports.verifyCheck = async (req, res) => {
 
         const check = await models.User.findOne({
             where: {
-                email: body.email,
+                id: body.id,
             },
         });
 
-        if (!check.emailReq) {
+        if (!check) {
             return res.status(401).json({
-                message: "이메일을 잘못 입력하였습니다.",
+                message: "ID를 잘못 입력하였습니다.",
             });
         }
 
@@ -210,7 +216,7 @@ exports.mailVerify = async (req, res) => {
         const token = jwt.sign({
             email: email,
         },
-        secretObj.secert, {
+        secretObjM.secret, {
             expiresIn: '30m'
         });
 
@@ -218,7 +224,7 @@ exports.mailVerify = async (req, res) => {
             from: 'mailverify1234@gmail.com',
             to: email,
             subject: 'Growing Discrops메일 인증을 해주세요!',
-            html: ' <center> <p>아래의 링크를 클릭하여 email인증을 해주세요!</p> <br/>' + "<a href='http://10.80.161.119:8080/auth/email/mailCheck/?token=" + token + "'>인증하기</a> <br/>" + "<p>만약 자신이 요청한 것이 아니면</p> <a href='https://www.facebook.com/profile.php?id=100010144092898'>FaceBook</a>" + "<p>로 문의주세요</p>",
+            html: ' <center> <p>아래의 링크를 클릭하여 email인증을 해주세요!</p> <br/>' + "<a href='http://10.80.161.119:8080/auth/email/mailCheck/?tokenM=" + token + "'>인증하기</a> <br/>" + "<p>만약 자신이 요청한 것이 아니면</p> <a href='https://www.facebook.com/profile.php?id=100010144092898'>FaceBook</a>" + "<p>로 문의주세요</p>",
         };
 
         transporter.sendMail(mailOption, function(err, info) {
@@ -242,8 +248,8 @@ exports.mailVerify = async (req, res) => {
 }
 
 exports.mailCheck = async (req, res) => {
-    const token = req.query.token;
-    const emailDecoded = jwt.verify(token, secretObj.secert); 
+    const tokenM = req.query.tokenM;
+    const emailDecoded = jwt.verify(tokenM, secretObjM.secret); 
 
     try {
 
@@ -268,7 +274,8 @@ exports.mailCheck = async (req, res) => {
         });
 
         return res.status(200).sendFile('mailCheck.html', {
-            'root': 'src/public/mail'});
+            'root': 'src/public/mail'
+        });
 
     } catch (err) {
         console.log(err);
