@@ -122,6 +122,16 @@ exports.getPost = async (req, res) => {
             }
         }
         post.hateCount = postHate.length;
+        
+        if (req.user) {
+            if (req.user.id === post.userId) {
+                post.modifyPost = true;
+            } else {
+                post.modifyPost = false;
+            }
+        } else {
+            post.modifyPost = false;
+        }
 
         return res.status(200).json({
             message: "게시글 불러오기 성공!",
@@ -163,6 +173,48 @@ exports.createPost = async (req, res) => {
         console.log(err);
         return res.status(500).json({
             message: '서버 오류',
+        });
+    }
+}
+
+exports.modifyPost = async (req, res) => {
+    const { body, user } = req;
+    const { postIdx } = req.params;
+    
+    if (!user) {
+            return res.status(401).json({
+                message: '로그인 안됨',
+            });
+        }   
+
+    try {
+
+        await models.Post.update(body, {
+            where: {
+                postIdx,
+            }
+        });
+
+        const post = await models.Post.findOne({
+            where: {
+                idx: postIdx,
+            },
+        });
+
+        if (post.userId === user.id) {
+            return res.status(409).json({
+                message: "자신의 게시물이 아닌데요?",
+            });
+        }
+
+        return res.status(200).json({
+            message: "게시글 수정 성공!",
+        });
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({
+            message: "서버 오류",
         });
     }
 }
