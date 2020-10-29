@@ -124,13 +124,18 @@ exports.getPost = async (req, res) => {
         post.hateCount = postHate.length;
         
         if (req.user) {
-            if (req.user.id === post.userId) {
+
+            if (req.user.name === post.userName) {
                 post.modifyPost = true;
+                post.deletePost = true;
             } else {
                 post.modifyPost = false;
+                post.deletePost = false;
             }
+
         } else {
             post.modifyPost = false;
+            post.deletePost = false;
         }
 
         return res.status(200).json({
@@ -179,7 +184,7 @@ exports.createPost = async (req, res) => {
 
 exports.modifyPost = async (req, res) => {
     const { body, user } = req;
-    const { postIdx } = req.params;
+    const { idx } = req.params;
     
     if (!user) {
             return res.status(401).json({
@@ -191,17 +196,17 @@ exports.modifyPost = async (req, res) => {
 
         await models.Post.update(body, {
             where: {
-                postIdx,
+                idx: idx,
             }
         });
 
         const post = await models.Post.findOne({
             where: {
-                idx: postIdx,
+                idx: idx,
             },
         });
 
-        if (post.userId === user.id) {
+        if (post.userName === user.name) {
             return res.status(409).json({
                 message: "자신의 게시물이 아닌데요?",
             });
