@@ -9,6 +9,8 @@ router.post('/create', postCtrl.createPost);
 
 router.put('/modify/:idx', postCtrl.modifyPost);
 
+router.post('/delete/:idx', postCtrl.deletePost);
+
 router.post('/like', postCtrl.like);
 router.post('/hate', postCtrl.hate);
 

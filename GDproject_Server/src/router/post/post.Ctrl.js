@@ -1,5 +1,6 @@
 const models = require('../../../models');
 const sequelize = require('sequelize');
+const { Model } = require('sequelize');
 const Op = sequelize.Op;
 
 exports.getPosts = async (req, res) => {
@@ -216,6 +217,48 @@ exports.modifyPost = async (req, res) => {
 
         return res.status(200).json({
             message: "게시글 수정 성공!",
+        });
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({
+            message: "서버 오류",
+        });
+    }
+}
+
+exports.deletePost = async (req, res) => {
+    const { user } = req;
+    const { postIdx } = req.params.idx;
+    
+    try {
+
+        if (!user) {
+            return res.status(401).json({
+                message: "먼저 로그인을 해주세요!",
+            });
+        }
+
+        const post = await models.Post.findOne({
+            where: {
+                idx: postIdx,
+            },
+        });
+
+        if (!(post.userName === user.name)) {
+            return res.status(409).json({
+                message: "자신의 게시물이 아닌데요?",
+            });
+        }
+
+        await models.Post.destroy({
+            where: {
+                idx: postIdx,
+            },
+        });
+
+        return res.status(200).json({
+            message: "게시글 삭제 완료!",
         });
 
     } catch (err) {
