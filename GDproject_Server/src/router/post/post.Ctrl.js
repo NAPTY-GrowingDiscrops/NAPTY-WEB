@@ -70,6 +70,7 @@ exports.getPosts = async (req, res) => {
 }
 
 exports.getPost = async (req, res) => {
+    const { user } = req;
     const idx = req.params.idx;
 
     try {
@@ -95,9 +96,9 @@ exports.getPost = async (req, res) => {
         });
 
         post.liked = false;
-        if (req.user) {
+        if (user) {
             for (const pl of postLike) {
-                if (pl.userId == req.user.id) {
+                if (pl.userId == user.id) {
                     post.liked = true;
                     break;
                 }
@@ -116,7 +117,7 @@ exports.getPost = async (req, res) => {
         post.hated = false;
         if (req.user) {
             for (const pl of postHate) {
-                if (pl.userId == req.user.id) {
+                if (pl.userId == user.id) {
                     post.hated = true;
                     break;
                 }
@@ -124,9 +125,9 @@ exports.getPost = async (req, res) => {
         }
         post.hateCount = postHate.length;
         
-        if (req.user) {
+        if (user) {
 
-            if (req.user.name === post.userName) {
+            if (user.name === post.userName) {
                 post.modifyPost = true;
                 post.deletePost = true;
             } else {
@@ -142,6 +143,7 @@ exports.getPost = async (req, res) => {
         return res.status(200).json({
             message: "게시글 불러오기 성공!",
             post,
+            comment,
         });
 
     } catch (err) {
@@ -242,6 +244,12 @@ exports.deletePost = async (req, res) => {
                 idx: idx,
             },
         });
+
+        if (!post) {
+            return res.status(401).json({
+                message: "없는 게시글 입니다",
+            });
+        }
 
         if (!(post.userName === user.name)) {
             return res.status(409).json({
