@@ -194,13 +194,7 @@ exports.modifyPost = async (req, res) => {
         }   
 
     try {
-
-        await models.Post.update(body, {
-            where: {
-                idx: idx,
-            }
-        });
-
+        
         const post = await models.Post.findOne({
             where: {
                 idx: idx,
@@ -210,10 +204,14 @@ exports.modifyPost = async (req, res) => {
         if (!(post.userName === user.name)) {
             return res.status(409).json({
                 message: "자신의 게시물이 아닌데요?",
-                user,
-                post,
             });
         }
+
+        await models.Post.update(body, {
+            where: {
+                idx: idx,
+            }
+        });
 
         return res.status(200).json({
             message: "게시글 수정 성공!",
@@ -229,19 +227,19 @@ exports.modifyPost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
     const { user } = req;
-    const { postIdx } = req.params.idx;
+    const { idx } = req.params;
     
-    try {
-
-        if (!user) {
+    if (!user) {
             return res.status(401).json({
                 message: "먼저 로그인을 해주세요!",
             });
         }
+    
+    try {
 
         const post = await models.Post.findOne({
             where: {
-                idx: postIdx,
+                idx: idx,
             },
         });
 
@@ -253,7 +251,31 @@ exports.deletePost = async (req, res) => {
 
         await models.Post.destroy({
             where: {
-                idx: postIdx,
+                idx: idx,
+            },
+        });
+
+        await models.PostLike.destroy({
+            where: {
+                postIdx: idx,
+            },
+        });
+
+        await models.PostHate.destroy({
+            where: {
+                postIdx: idx,
+            },
+        });
+
+        await models.Comment.destroy({
+            where: {
+                postIdx: idx,
+            },
+        });
+
+        await models.Recomment.destroy({
+            where: {
+                postIdx: idx,
             },
         });
 

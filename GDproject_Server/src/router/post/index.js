@@ -14,4 +14,4 @@ router.post('/delete/:idx', postCtrl.deletePost);
 router.post('/like', postCtrl.like);
 router.post('/hate', postCtrl.hate);
 
-module.exports = router;
+module.exports = router; 
