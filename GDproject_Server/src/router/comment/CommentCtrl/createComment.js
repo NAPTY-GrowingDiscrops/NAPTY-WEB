@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.createComment = async (req, res) => {
+const createComment = async (req, res) => {
     const { body, user } = req;
     const { idx } = req.params;
 
@@ -29,3 +29,5 @@ exports.createComment = async (req, res) => {
         });
     }
 }
+
+module.exports = createComment;

@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.nameCheck = async (req, res) => {
+const nameCheck = async (req, res) => {
     const { body } = req;
 
     try {
@@ -28,3 +28,5 @@ exports.nameCheck = async (req, res) => {
         });
     }
 }
+
+module.exports = nameCheck;

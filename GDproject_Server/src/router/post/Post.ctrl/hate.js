@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.hate = async (req, res) => {
+const hate = async (req, res) => {
     const { user } = req;
     const { postIdx } = req.query;
 
@@ -41,3 +41,5 @@ exports.hate = async (req, res) => {
         });
     }
 }
+
+module.exports = hate;

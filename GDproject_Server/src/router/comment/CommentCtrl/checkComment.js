@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.checkComment = async (req, res) => {
+const checkComment = async (req, res) => {
     const { user } = req;
     const { idx } = req.params;
 
@@ -34,3 +34,5 @@ exports.checkComment = async (req, res) => {
         });
     }
 }
+
+module.exports = checkComment;

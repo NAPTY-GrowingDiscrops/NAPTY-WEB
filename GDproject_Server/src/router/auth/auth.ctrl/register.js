@@ -1,6 +1,6 @@
  const models = require('../../../../models');
  
- exports.register = async (req, res) => {
+ const register = async (req, res) => {
     const { body }  = req;
 
     try {
@@ -24,3 +24,5 @@
         });
     }
 }
+
+module.exports = register;

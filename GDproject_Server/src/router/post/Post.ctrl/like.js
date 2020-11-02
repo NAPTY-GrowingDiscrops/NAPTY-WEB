@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.like = async (req, res) => {
+const like = async (req, res) => {
     const { user } = req;
     const { postIdx } = req.query;
 
@@ -42,3 +42,5 @@ exports.like = async (req, res) => {
         });
     }
 }
+
+module.exports = like;

@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.modifyPost = async (req, res) => {
+const modifyPost = async (req, res) => {
     const { body, user } = req;
     const { idx } = req.params;
     
@@ -41,3 +41,5 @@ exports.modifyPost = async (req, res) => {
         });
     }
 }
+
+module.exports = modifyPost;

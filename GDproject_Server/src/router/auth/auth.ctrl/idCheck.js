@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.idCheck = async (req, res) => {
+const idCheck = async (req, res) => {
     const { body } = req;
 
     try {
@@ -28,3 +28,5 @@ exports.idCheck = async (req, res) => {
         });
     }
 }
+
+module.exports = idCheck;

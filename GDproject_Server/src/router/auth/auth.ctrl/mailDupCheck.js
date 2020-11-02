@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.mailDupCheck = async (req, res) => {
+const mailDupCheck = async (req, res) => {
     const { body } = req;
 
     try {
@@ -27,3 +27,5 @@ exports.mailDupCheck = async (req, res) => {
         });
     }
 }
+
+module.exports = mailDupCheck;

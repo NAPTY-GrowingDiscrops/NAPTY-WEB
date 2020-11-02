@@ -3,7 +3,7 @@ const secretObjM =require('../../../config/jwtMail');
 
 const jwt = require('jsonwebtoken');
 
-exports.mailCheck = async (req, res) => {
+const mailCheck = async (req, res) => {
     const tokenM = req.query.tokenM;
     const emailDecoded = jwt.verify(tokenM, secretObjM.secret); 
 
@@ -41,3 +41,5 @@ exports.mailCheck = async (req, res) => {
     }
 
 }
+
+module.exports = mailCheck;

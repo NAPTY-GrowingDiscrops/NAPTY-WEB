@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.deleteComment = async (req, res) => {
+const deleteComment = async (req, res) => {
     const { user } = req;
     const { idx } = req.params;
 
@@ -40,3 +40,5 @@ exports.deleteComment = async (req, res) => {
         });
     }
 }
+
+module.exports = deleteComment;

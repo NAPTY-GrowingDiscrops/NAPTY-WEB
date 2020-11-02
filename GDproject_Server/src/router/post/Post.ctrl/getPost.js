@@ -1,6 +1,9 @@
 const models = require('../../../../models');
+const jwtObjV = require('../../../config/jwtView');
 
-exports.getPost = async (req, res) => {
+const jwt = require('jsonwebtoken');
+
+const getPost = async (req, res) => {
     const { user } = req;
     const idx = req.params.idx;
 
@@ -14,10 +17,12 @@ exports.getPost = async (req, res) => {
         });
 
         if (!post) {
-            return res.status(401).json({
+            return res.status(404).json({
                 message: "잘못된 요청입니다.",
             });
         }
+
+        
 
         const comment = await models.Comment.findAll({
             where: {
@@ -91,3 +96,5 @@ exports.getPost = async (req, res) => {
     }
 
 }
+
+module.exports = getPost;

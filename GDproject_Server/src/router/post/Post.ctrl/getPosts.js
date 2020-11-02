@@ -2,7 +2,7 @@ const models = require('../../../../models');
 const sequelie = require('sequelize');
 const Op = sequelie.Op;
 
-exports.getPosts = async (req, res) => {
+const getPosts = async (req, res) => {
     keyword = req.query.keyword
     try {
 
@@ -33,9 +33,7 @@ exports.getPosts = async (req, res) => {
 
         }
 
-        for (const post of posts) {
-            const 
-        }
+        
 
         for (const post of posts) {
             const postLike = await models.PostLike.findAll({
@@ -71,3 +69,5 @@ exports.getPosts = async (req, res) => {
         });
     }
 }
+
+module.exports = getPosts;

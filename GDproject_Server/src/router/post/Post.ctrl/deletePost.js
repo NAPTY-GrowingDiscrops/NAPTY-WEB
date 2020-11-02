@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.deletePost = async (req, res) => {
+const deletePost = async (req, res) => {
     const { user } = req;
     const { idx } = req.params;
     
@@ -71,3 +71,5 @@ exports.deletePost = async (req, res) => {
         });
     }
 }
+
+module.exports = deletePost;

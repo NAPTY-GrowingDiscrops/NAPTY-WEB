@@ -3,7 +3,7 @@ const secretObjA = require('../../../config/jwtAuth');
 
 const jwt = require('jsonwebtoken');
 
-exports.login = async (req, res) => {
+const login = async (req, res) => {
     const { body } = req;
 
     try {
@@ -39,3 +39,5 @@ exports.login = async (req, res) => {
         });
     }
 }
+
+module.exports = login;

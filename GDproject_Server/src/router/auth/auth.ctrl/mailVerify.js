@@ -4,7 +4,7 @@ const secretObjM = require('../../../config/jwtMail');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 
-exports.mailVerify = async (req, res) => {
+const mailVerify = async (req, res) => {
     const email = req.body.email;
 
     try {
@@ -61,3 +61,5 @@ exports.mailVerify = async (req, res) => {
         });
     }
 }
+
+module.exports = mailVerify;

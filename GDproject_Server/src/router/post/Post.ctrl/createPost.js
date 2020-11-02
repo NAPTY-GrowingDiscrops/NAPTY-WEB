@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.createPost = async (req, res) => {
+const createPost = async (req, res) => {
     const { body, user } = req;
 
         try {
@@ -29,3 +29,5 @@ exports.createPost = async (req, res) => {
         });
     }
 }
+
+module.exports = createPost;

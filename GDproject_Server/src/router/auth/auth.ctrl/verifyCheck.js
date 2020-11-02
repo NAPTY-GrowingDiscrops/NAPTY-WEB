@@ -1,6 +1,6 @@
 const models = require('../../../../models');
 
-exports.verifyCheck = async (req, res) => {
+const verifyCheck = async (req, res) => {
     const { body } = req;
 
     try {
@@ -34,3 +34,5 @@ exports.verifyCheck = async (req, res) => {
         });
     }
 }
+
+module.exports = verifyCheck;

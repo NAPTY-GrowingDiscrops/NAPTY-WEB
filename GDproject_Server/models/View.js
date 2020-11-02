@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define('post', {
+  const View = sequelize.define('view', {
     idx: {
       field: 'idx',
       type: DataTypes.INTEGER,
@@ -29,9 +29,9 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: Date.now,
     },
   }, {
-    tableName: 'post',
+    tableName: 'view',
     timestamps: false,
   });
 
-  return Post;
+  return View;
 }
