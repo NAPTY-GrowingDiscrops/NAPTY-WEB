@@ -1,15 +1,23 @@
 const router = require('express').Router();
-const authCtrl = require('./auth.Ctrl');
 
-router.post('/login', authCtrl.login);
-router.post('/login/verifyCheck', authCtrl.verifyCheck)
+const login = require('./auth.ctrl/login');
+const verifyCheck = require('./auth.ctrl/verifyCheck');
+const register = require('./auth.ctrl/register');
+const mailDupCheck = require('./auth.ctrl/mailDupCheck');
+const nameCheck = require('./auth.ctrl/nameCheck');
+const idCheck = require('./auth.ctrl/idCheck');
+const mailVerify = require('./auth.ctrl/mailVerify');
+const mailCheck = require('./auth.ctrl/mailCheck');
 
-router.post('/register', authCtrl.register);
-router.post('/register/mailCheck', authCtrl.mailDupCheck);
-router.post('/register/nameCheck', authCtrl.nameCheck);
-router.post('/register/idCheck', authCtrl.idCheck);
+router.post('/login', login);
+router.post('/login/verifyCheck', verifyCheck);
 
-router.post('/email/mailVerify', authCtrl.mailVerify);
-router.get('/email/mailCheck', authCtrl.mailCheck);
+router.post('/register', register);
+router.post('/register/mailCheck', mailDupCheck);
+router.post('/register/nameCheck', nameCheck);
+router.post('/register/idCheck', idCheck);
+
+router.post('/email/mailVerify', mailVerify);
+router.get('/email/mailCheck', mailCheck);
 
 module.exports = router;

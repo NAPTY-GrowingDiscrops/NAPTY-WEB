@@ -1,17 +1,23 @@
 const router = require('express').Router();
 
-const postCtrl = require('./post.Ctrl');
+const getPosts = require('./Post.ctrl/getPosts');
+const getPost = require('./Post.ctrl/getPost');
+const createPost = require('./Post.ctrl/createPost');
+const modifyPost = require('./Post.ctrl/modifyPost');
+const deletePost= require('./Post.ctrl/deletePost');
+const like = require('./Post.ctrl/like');
+const hate = require('./Post.ctrl/hate');
 
-router.get('/read/list', postCtrl.getPosts);
-router.get('/read/:idx', postCtrl.getPost);
+router.get('/read/list', getPosts);
+router.get('/read/:idx', getPost);
 
-router.post('/create', postCtrl.createPost);
+router.post('/create', createPost);
 
-router.put('/modify/:idx', postCtrl.modifyPost);
+router.put('/modify/:idx', modifyPost);
 
-router.post('/delete/:idx', postCtrl.deletePost);
+router.post('/delete/:idx', deletePost);
 
-router.post('/like', postCtrl.like);
-router.post('/hate', postCtrl.hate);
+router.post('/like', like);
+router.post('/hate', hate);
 
 module.exports = router; 

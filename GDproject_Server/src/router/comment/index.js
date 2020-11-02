@@ -1,7 +1,10 @@
 const router = require('express').Router();
-const commentCtrl = require('./Comment.Ctrl');
 
-router.post('/create/:idx', commentCtrl.createComment);
-// router.post('/delete', commentCtrl.deleteComment);
+const checkComment = require('./CommentCtrl/checkComment');
+const createComment = require('./CommentCtrl/createComment');
+const deleteComment = require('./CommentCtrl/deleteComment');
+
+router.post('/check/:idx', checkComment);
+router.post('/create/:idx', createComment);
 
 module.exports = router;
