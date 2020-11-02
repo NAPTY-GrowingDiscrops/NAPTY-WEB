@@ -1,7 +1,5 @@
 const models = require('../../../../models');
-const jwtObjV = require('../../../config/jwtView');
-
-const jwt = require('jsonwebtoken');
+const encrypt = require('../../../config/encrypt');
 
 const getPost = async (req, res) => {
     const { user } = req;
@@ -22,7 +20,40 @@ const getPost = async (req, res) => {
             });
         }
 
-        
+        let ip = req.headers['x-forwarded-for'] || req.connetion.remoteAddress;
+        if (Array.isArray(ip)) {
+            ip = ip[0];
+        }
+
+        const encryptedIp = encrypt(ip);
+
+        const viewed = await models.View.findOne({
+            where: {
+                postIdx: post.idx,
+                ip: encryptedIp,
+            },
+            order: [
+                ['createdAt', 'DESC'],
+            ],
+            raw: true,
+        });
+
+        const currentTime = moment();
+
+        if (!viewed || (viewed && currentTime.diff(moment(viewed.createdAt), 'minutes') > 60 )) {
+            post.view += 1;
+            
+            await models.Post.update(post, {
+                where: {
+                    idx: post.idx,
+                },
+            });
+
+            await models.Post.create({
+                postIdx: post.idx,
+                ip:encryptedIp,
+            });
+        }
 
         const comment = await models.Comment.findAll({
             where: {

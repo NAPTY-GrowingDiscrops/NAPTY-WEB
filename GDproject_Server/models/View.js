@@ -7,18 +7,13 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    userName: {
-      field: 'user_name',
-      type: DataTypes.STRING,
+    postIdx: {
+      field: 'post_idx',
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    title: {
-      field: 'title',
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    content: {
-      field: 'content',
+    ip: {
+      field: 'ip',
       type: DataTypes.STRING,
       allowNull: false,
     },

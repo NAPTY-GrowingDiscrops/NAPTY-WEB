@@ -1,2 +1,3 @@
 node_modules
 src/config
+src/router/post/Post.ctrl/.env

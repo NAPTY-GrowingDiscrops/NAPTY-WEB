@@ -16,6 +16,7 @@ const CommentM = require('./Comment');
 const RecommentM = require('./Recomment');
 const PostLikeM = require('./PostLike');
 const PostHateM = require('./PostHate');
+const ViewM = require('./View');
 
 module.exports = {
   User: UserM(sequelize, Sequelize),
@@ -24,6 +25,7 @@ module.exports = {
   Recomment: RecommentM(sequelize, Sequelize),
   PostLike: PostLikeM(sequelize, Sequelize),
   PostHate: PostHateM(sequelize, Sequelize),
+  View: ViewM(sequelize, Sequelize),
 }
 
 sequelize.sync().then(() => {
