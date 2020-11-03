@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize('gdproject', 'root', '1234', {
   host: 'localhost',
   dialect: 'mysql',
+  timezone: '+09:00',
   logging: false,
 
   define: {

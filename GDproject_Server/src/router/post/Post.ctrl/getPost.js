@@ -1,6 +1,8 @@
 const models = require('../../../../models');
 const encrypt = require('../../../config/encrypt');
 
+const moment = require('moment');
+
 const getPost = async (req, res) => {
     const { user } = req;
     const idx = req.params.idx;
@@ -20,7 +22,7 @@ const getPost = async (req, res) => {
             });
         }
 
-        let ip = req.headers['x-forwarded-for'] || req.connetion.remoteAddress;
+        let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
         if (Array.isArray(ip)) {
             ip = ip[0];
         }
@@ -49,7 +51,7 @@ const getPost = async (req, res) => {
                 },
             });
 
-            await models.Post.create({
+            await models.View.create({
                 postIdx: post.idx,
                 ip:encryptedIp,
             });
