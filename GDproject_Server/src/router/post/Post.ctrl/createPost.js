@@ -14,6 +14,7 @@ const createPost = async (req, res) => {
         await models.Post.create({
             title: body.title,
             content: body.content,
+            userId: user.id,
             userName: user.name,
             userId: user.id,
         });

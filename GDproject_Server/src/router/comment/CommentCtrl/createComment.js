@@ -14,6 +14,7 @@ const createComment = async (req, res) => {
 
         await models.Comment.create({
             postIdx: idx,
+            userId: user.id,
             userName: user.name,
             comment: body.comment,
         });

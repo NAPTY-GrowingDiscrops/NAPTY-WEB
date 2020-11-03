@@ -107,7 +107,7 @@ const getPost = async (req, res) => {
         
         if (user) {
 
-            if (user.name === post.userName) {
+            if (user.id === post.usrId) {
                 post.modifyPost = true;
                 post.deletePost = true;
             } else {

@@ -16,9 +16,15 @@ const deleteComment = async (req, res) => {
             where: {
                 idx: idx,
             },
-        });;
+        });
 
-        if (!(comment.userName == user.name)) {
+        if (!comment) {
+            return res.status(404).json({
+                message: "댓글이 없습니다.",
+            });
+        }
+
+        if (!(comment.userId == user.id)) {
             return res.status(409).json({
                 message: "자신의 댓글이 아닙니다.",
             });
@@ -35,6 +41,7 @@ const deleteComment = async (req, res) => {
         });
 
     } catch (err) {
+        console.log(err);
         return res.status(500).json({
             message: "서버 오류",
         });

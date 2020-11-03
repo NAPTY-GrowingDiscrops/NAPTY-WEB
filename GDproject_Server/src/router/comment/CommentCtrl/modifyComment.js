@@ -1,14 +1,8 @@
 const models = require('../../../../models');
 
-const checkComment = async (req, res) => {
-    const { user } = req;
+const modifyComment = async(req, res) => {
+    const { body, user } = req;
     const { idx } = req.params;
-
-    if (!user) {
-        return res.status(409).json({
-            message: "로그인을 먼저 해주세요!",
-        });
-    }
 
     try {
 
@@ -18,21 +12,34 @@ const checkComment = async (req, res) => {
             },
         });
 
-        if (!(comment.userId == user.id)) {
-            return res.status(401).json({
-                message: "자신의 댓글이 아닙니다.",
+        if (!comment) {
+            return res.status(404).json({
+                message: "없는 댓글입니다",
             });
         }
 
+        if (!(comment.userId == user.id)) {
+            return res.status(401).json({
+                message: "자신의 댓글이 아닙니다",
+            });
+        }
+
+        await models.Comment.update(body, {
+            where: {
+                idx: idx,
+            },
+        });
+
         return res.status(200).json({
-            message: "자신의 댓글!",
+            message: "댓글 수정 완료"
         });
 
     } catch (err) {
+        console.loq(err);
         return res.status(500).json({
             message: "서버 오류",
         });
     }
 }
 
-module.exports = checkComment;
+module.exports = modifyComment;

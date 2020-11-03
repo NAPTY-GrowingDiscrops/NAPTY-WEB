@@ -15,7 +15,7 @@ router.post('/create', createPost);
 
 router.put('/modify/:idx', modifyPost);
 
-router.post('/delete/:idx', deletePost);
+router.delete('/delete/:idx', deletePost);
 
 router.post('/like', like);
 router.post('/hate', hate);

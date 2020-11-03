@@ -24,7 +24,7 @@ const deletePost = async (req, res) => {
             });
         }
 
-        if (!(post.userName === user.name)) {
+        if (!(post.userId === user.id)) {
             return res.status(403).json({
                 message: "자신의 게시물이 아닌데요?",
             });
