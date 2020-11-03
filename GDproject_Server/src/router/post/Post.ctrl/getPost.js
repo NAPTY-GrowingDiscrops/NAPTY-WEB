@@ -61,7 +61,12 @@ const getPost = async (req, res) => {
             where: {
                 postIdx: idx,
             },
+            order: [
+                ['createdAt', 'DESC'],
+            ],
         });
+
+        
 
         const postLike = await models.PostLike.findAll({
             where: {
