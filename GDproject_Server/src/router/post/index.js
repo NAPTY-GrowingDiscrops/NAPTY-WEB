@@ -8,14 +8,12 @@ const deletePost= require('./post.ctrl/deletePost');
 const like = require('./post.ctrl/like');
 const hate = require('./post.ctrl/hate');
 
-router.get('/read/list', getPosts);
-router.get('/read/:idx', getPost);
+router.get('/', getPosts);
+router.get('/:idx', getPost);
 
-router.post('/create', createPost);
-
-router.put('/modify/:idx', modifyPost);
-
-router.delete('/delete/:idx', deletePost);
+router.post('/', createPost);
+router.put('/:idx', modifyPost);
+router.delete('/:idx', deletePost);
 
 router.post('/like', like);
 router.post('/hate', hate);
