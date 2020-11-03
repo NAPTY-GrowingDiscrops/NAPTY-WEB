@@ -12,11 +12,23 @@ const createComment = async (req, res) => {
 
     try {
 
+        const post = await models.findOne({
+            where: {
+                idx: idx,
+            },
+        });
+
+        if (!post) {
+            return res.status(404).json({
+                message: "없는 게시글입니다",
+            });
+        }
+
         await models.Comment.create({
             postIdx: idx,
             userId: user.id,
             userName: user.name,
-            comment: body.comment,
+            content: body.content,
         });
 
         return res.status(200).json({

@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    comment: {
-      field: 'comment',
+    content: {
+      field: 'content',
       type: DataTypes.TEXT,
       allowNull: false,
     },

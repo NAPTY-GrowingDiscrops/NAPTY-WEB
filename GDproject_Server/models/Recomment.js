@@ -27,6 +27,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    content: {
+      field: 'content',
+      type: DataTypes.TEXT,
+      allowNull: false, 
+    },
     createdAt: {
       field: 'created_at',
       type: DataTypes.DATE,
