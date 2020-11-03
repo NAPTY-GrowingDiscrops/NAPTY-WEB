@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+}
+
+.Main {
+    .top {
+        width: 1920px;
+        height: 527px;
+
+        background-image: url('./server.jpg');
+    }
+
+    .middle {
+        width: 1920px;
+        height: 956px;
+
+        background-color: #EBEBEB;
+
+        .boxes {
+            padding-left: 165px;
+            padding-top: 236px;
+
+            text-align: center;
+            color: white;
+
+            .box1 {
+                float: left;
+
+                width: 937px;
+                height: 530px;
+
+                background: #59493F;
+                border-radius: 30px;;
+
+                margin-right: 110px;
+            }
+
+            .box2 {
+                float: left;
+
+                width: 530px;
+                height: 530px;
+
+                background: #59493F;
+                border-radius: 30px;;
+            }
+        }
+    }
+}

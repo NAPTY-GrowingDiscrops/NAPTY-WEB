@@ -1,0 +1,31 @@
+.bottom {
+    width: 1920px;
+    height: 338px;
+    background: linear-gradient(to right, #59493F, #7E6B5A, #FFFFFF);
+
+    .textbox {
+        padding-top: 125px;
+        padding-left: 164px;
+        
+        .name {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 42px;
+
+            color: #FFFFFF;
+            margin-bottom: 17px;
+        }
+
+        .explane {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+
+            color: #FFFFFF;
+        }
+    }
+} 
