@@ -12,7 +12,7 @@ const createRecomment = async (req, res) => {
 
     try {
 
-        const comment = models.Recomment.findOne({
+        const comment = await models.Comment.findOne({
             where: {
                 idx: idx,
             },

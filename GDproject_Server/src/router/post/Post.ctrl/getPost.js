@@ -66,7 +66,14 @@ const getPost = async (req, res) => {
             ],
         });
 
-        
+        const recomment = await models.Recomment.findAll({
+            where: {
+                postIdx: idx,
+            },
+            order: [
+                ['createdAt', 'DESC'],
+            ],
+        });
 
         const postLike = await models.PostLike.findAll({
             where: {
@@ -124,6 +131,7 @@ const getPost = async (req, res) => {
             message: "게시글 불러오기 성공!",
             post,
             comment,
+            recomment,
         });
 
     } catch (err) {
