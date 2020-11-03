@@ -17,6 +17,6 @@ const router = require('./router');
 app.use('/static', express.static('public'));
 app.use('/', router);
 
-app.listen(8080, () => {
-    console.log('Server is running at 8080');
+app.listen(8000, () => {
+    console.log('Server is running at 8000');
 })
