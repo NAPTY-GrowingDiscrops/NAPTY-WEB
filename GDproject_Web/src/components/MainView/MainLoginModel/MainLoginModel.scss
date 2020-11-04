@@ -1,0 +1,46 @@
+*:focus {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    background-color: #EBEBEB;
+}
+
+.LoginBox {
+    width: 530px;
+    height: 215px;
+
+    background-color: #7E6B5A;
+
+    .loginleft {
+        margin: 35px 0 0 42px;
+
+        .loginInputBox {
+            float: left;
+
+            .loginInput {
+                width: 300px;
+                height: 57px;
+                border: none;
+                border-radius: 10px;
+
+                ::placeholder {
+                    margin-left: 21px;
+                }
+            }
+        }
+    }
+
+    .loginBtn {
+        background-color: #59493F;
+        float: right;
+        margin-right: 43px;
+        width: 126px;
+        height: 126px;
+        border-radius: 16px;
+        color: white;
+        font-size: 18px;
+        border: none;
+    }
+}
