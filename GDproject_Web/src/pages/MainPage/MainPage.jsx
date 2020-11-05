@@ -16,8 +16,7 @@ const MainPage = () => {
           <div className='top_img'>
             <img src={img1} className='img_file'/>
           </div>
-
-          <MainLogin className='LoginBox'/>
+            <MainLogin className='LoginBox'/>
 
           <div className='boxes'>
             <div className='box1'>
