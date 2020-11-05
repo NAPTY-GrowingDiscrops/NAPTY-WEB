@@ -26,7 +26,7 @@ body {
             width: 100%;
             height: 527px;
             z-index: 1;
-            background-color: yellow;
+            background-color: white;
             text-align: center;
             overflow: hidden;
 
@@ -39,8 +39,10 @@ body {
         
         .LoginBox {
             position: relative;
-            top: -110px;
-            float: right;
+            top: -130px;
+            left: 63.64%;
+
+            align-items: center;
             z-index: 2;
         }
 
@@ -52,7 +54,6 @@ body {
             text-align: center;
             color: white;
             
-            padding-top: 232px;
             margin: auto;
 
             .box1 {

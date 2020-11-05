@@ -11,12 +11,12 @@ body {
     width: 530px;
     height: 215px;
 
+    border-radius: 10px;
+
     background-color: #7E6B5A;
 
-    .loginleft {
-        margin: 35px 0 0 42px;
-
         .loginInputBox {
+            margin: 35px 0 0 42px;
             float: left;
 
             .loginInput {
@@ -30,17 +30,19 @@ body {
                 }
             }
         }
-    }
 
     .loginBtn {
+        margin: 33px 39px 0 0;
+
         background-color: #59493F;
         float: right;
-        margin-right: 43px;
-        width: 126px;
-        height: 126px;
-        border-radius: 16px;
+        width: 130px;
+        height: 130px;
+
         color: white;
         font-size: 18px;
+        
         border: none;
+        border-radius: 16px;
     }
 }
