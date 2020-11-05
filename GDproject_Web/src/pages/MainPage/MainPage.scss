@@ -6,23 +6,38 @@ body {
 
 }
 
+@font-face {
+    font-family: DungGeunMo;
+    font-style: normal;
+    font-style: normal;
+    font-weight: normal;
+
+    src: local('DungGeunMo'), 
+         url(../../font/DungGeunMo.ttf) format('truetype');
+}
+
 .Main {
     position: relative;
     width: 100%;
     min-width: 1600px;
     z-index: 1;
 
-    .logo {
-        position: relative;
-        top: 124px;
-    
-        width: 220px;
-        height: 90px;
+    .logo_div {
+        height: 0;
+        margin: 0 1600px 0 0;
 
-        margin-top: -100px;       
+        .logo {
+            position: relative;
+            left: 50%;
+            top: 124px;
 
-        float: left;
-        z-index: 2;
+            margin-top: -120px;
+            
+            width: auto;
+            height: 90px;
+
+            z-index: 2;
+        }
     }
 
     .content {
