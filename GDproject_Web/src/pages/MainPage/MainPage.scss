@@ -12,7 +12,18 @@ body {
     min-width: 1600px;
     z-index: 1;
 
+    .logo {
+        position: relative;
+        top: 124px;
     
+        width: 220px;
+        height: 90px;
+
+        margin-top: -100px;       
+
+        float: left;
+        z-index: 2;
+    }
 
     .content {
         width: 100%;
