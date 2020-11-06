@@ -17,108 +17,119 @@ body {
 }
 
 .Main {
-    position: relative;
+  position: relative;
+  width: 100%;
+  min-width: 1600px;
+  z-index: 1;
+
+
+  .content {
     width: 100%;
-    min-width: 1600px;
-    z-index: 1;
+    height: 1483px;
 
+    background-color: #EBEBEB;
 
-    .content {
-        width: 100%;
-        height: 1483px;
+    .logo_div {
+      height: 0;
+      margin: 0 1450px 0 0;
 
-        background-color: #EBEBEB;
+      .logo {
+        position: relative;
+        left: 50%;
+        top: 90px;
 
-        .logo_div {
-            height: 0;
-            margin: 0 1450px 0 0;
-
-            .logo {
-                position: relative;
-                left: 50%;
-                top: 90px;
-
-                margin-top: -200px;
+        margin-top: -200px;
                 
-                width: auto;
-                height: 90px;
+        width: auto;
+        height: 90px;
 
-                z-index: 2;
-            }
-        }
-
-        .startBtn {
-            position: relative;
-            top: 200px;
-            left: 50%;
-
-            width: 274px;
-            height: 106px;
-
-            margin: 0;
-            
-
-            background-color: #7E6B5A;
-            z-index: 2;
-        }
-        
-        .top_img {
-            position: relative;
-            width: 100%;
-            height: 527px;
-            z-index: 1;
-            background-color: white;
-            text-align: center;
-            overflow: hidden;
-
-            .img_file {
-                width: 100%;
-                height: auto;
-                max-width: initial;
-            }
-        }    
-
-        .LoginBox {
-            position: relative;
-            top: -130px;
-            left: 50%;
-
-            margin-left: 255px;
-
-            z-index: 2;
-        }
-
-        .boxes {
-            align-items: center;
-            width: 1577px;
-            height: 530px;
-
-            text-align: center;
-            color: white;
-            
-            margin: auto;
-
-            .box1 {
-                float: left;
-
-                width: 937px;
-                height: 530px;
-
-                background: #59493F;
-                border-radius: 30px;;
-
-                margin-right: 110px;
-            }
-
-            .box2 {
-                float: left;
-
-                width: 530px;
-                height: 530px;
-
-                background: #59493F;
-                border-radius: 30px;;
-            }
-        }
+        z-index: 2;
+      }
     }
+ 
+		.buttons {
+			position: relative;
+			top: -10000px;
+			left: 50%;
+			width: 944px;
+			height: 212px;
+
+			background-color: yellow;
+		}
+
+
+    .startBtn {
+      position: relative;
+      top: 200px;
+      left: 50%;
+
+      width: 274px;
+      height: 106px;
+
+      margin: 0;
+           
+
+      background-color: #7E6B5A;
+      z-index: 2;
+    }
+        
+    .top_img {
+      position: relative;
+      width: 100%;
+      height: 527px;
+      z-index: 1;
+      background-color: white;
+      text-align: center;
+      overflow: hidden;
+
+      .img_file {
+        width: 100%;
+        height: auto;
+        max-width: initial;
+      }
+    }    
+
+    .LoginBox {
+      position: relative;
+      top: -130px;
+      left: 50%;
+
+      margin-left: 255px;
+
+      z-index: 2;
+    }
+
+    .boxes {
+      align-items: center;
+      width: 1577px;
+      height: 530px;
+
+      text-align: center;
+      color: white;
+            
+			margin: auto;
+
+			.box1 {
+				float: left;
+
+				width: 937px;
+				height: 530px;
+
+				background: #59493F;
+				border-radius: 30px;;
+
+				margin-right: 110px;
+			}
+
+			.box2 {
+				float: left;
+
+				width: 530px;
+				height: 530px;
+
+				background: #59493F;
+				border-radius: 30px;;
+			}
+		}
+	}
 }

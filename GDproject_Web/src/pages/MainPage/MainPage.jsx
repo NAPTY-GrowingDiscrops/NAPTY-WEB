@@ -14,11 +14,9 @@ const MainPage = () => {
       
       <div className='content'>
 				<div className='logo_div'>
-     	   <embed src={logoPNG} className='logo' />
+     	   <img src={logoPNG} className='logo' />
     	  </div>
-				<div className='buttons'>
-					
-				</div>
+				<div className='buttons'></div>
         <div className='top_img'>
           <img src={img1} className='img_file' alt="mainPic"/>
         </div>
