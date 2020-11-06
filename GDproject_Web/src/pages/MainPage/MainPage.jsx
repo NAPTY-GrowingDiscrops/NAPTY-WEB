@@ -11,31 +11,38 @@ const MainPage = () => {
 
   return (
     <div className='Main'>
-      
+			
+
+			<div className='logo_div'>
+   	   <img src={logoPNG} className='logo' alt='logo'/>
+  	  </div>
       <div className='content'>
-				<div className='logo_div'>
-     	   <img src={logoPNG} className='logo' />
-    	  </div>
-				<div className='buttons'></div>
-        <div className='top_img'>
-          <img src={img1} className='img_file' alt="mainPic"/>
-        </div>
-          <MainLogin className='LoginBox'/>
 
-        <div className='boxes'>
-          <div className='box1'>
-              공지사항
-          </div>
-          
-          <div className='box2'>
-              인게임 사진
-          </div>
-        </div>
-      </div>
+				<div className='top'>
+						<img src={img1} className='img_file' alt='mainPic' />
+					</div>
 
-    <ViewBottom />
+				<div className='button'>
+					<div className='button_box'>
+						<div className='start'></div>
+					</div>
+				</div>
 
-    </div>
+				<MainLogin className='LoginBox'/>
+
+				<div className='boxes'>
+					<div className='box1'>
+						공지사항
+					</div>
+					<div className='box2'>
+						인게임 사진
+					</div>
+				</div>
+			</div>
+
+    	<ViewBottom />
+
+    	</div>
     )
 }
 
