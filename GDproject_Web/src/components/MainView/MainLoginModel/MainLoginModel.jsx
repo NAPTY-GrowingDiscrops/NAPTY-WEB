@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import SERVER from '../../../store/config';
-import { setToken } from '../../../lib/token';
+import React from 'react';
+// import axios from 'axios';
+// import SERVER from '../../../store/config';
+// import { setToken } from '../../../lib/token';
 
 import './logo.svg'
 import './MainLoginModel.scss';

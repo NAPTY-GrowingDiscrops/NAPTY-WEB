@@ -4,7 +4,6 @@ import ViewBottom from '../../components/ViewBottom/ViewBottom';
 import MainLogin from '../../components/MainView/MainLoginModel/MainLoginModel'
 
 import logoPNG from './logo.png';
-import logo from './logo.svg';
 import img1 from './Img/background.jpg';
 import './MainPage.scss';
 
@@ -13,14 +12,15 @@ const MainPage = () => {
   return (
     <div className='Main'>
       
-      <div className='logo_div'>
-        <embed src={logoPNG} className='logo' />
-      </div>
-
       <div className='content'>
-        <div className="downBtn" ></div>  
+				<div className='logo_div'>
+     	   <embed src={logoPNG} className='logo' />
+    	  </div>
+				<div className='buttons'>
+					
+				</div>
         <div className='top_img'>
-          <img src={img1} className='img_file'/>
+          <img src={img1} className='img_file' alt="mainPic"/>
         </div>
           <MainLogin className='LoginBox'/>
 
