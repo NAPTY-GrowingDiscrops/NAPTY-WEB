@@ -18,7 +18,7 @@ const MainLogin = ({ setIsLogin }) => {
 			});
 			
 		} catch (err) {
-			setId('');
+			setId('');                     
 			setPw('');
 			switch (err.response.status) {
 				case 400:
@@ -53,7 +53,7 @@ const MainLogin = ({ setIsLogin }) => {
 
 		setId('');
 		setPw('');
-		this.props.setIsLogin(true);
+		setIsLogin(true);
 	}
 
 	return (
