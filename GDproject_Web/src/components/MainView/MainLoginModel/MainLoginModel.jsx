@@ -13,9 +13,10 @@ const MainLogin = ({ setIsLogin }) => {
 
 	const login = async () => { 
 		try {
-			const resp = await axios.post(`${SERVER}/auth/login`, {
+			await axios.post(`${SERVER}/auth/login`, {
 				id, pw
 			});
+			
 		} catch (err) {
 			setId('');
 			setPw('');
@@ -33,19 +34,27 @@ const MainLogin = ({ setIsLogin }) => {
 		}
 
 		try {
-			const resp = await axios.post(`${SERVER}/auth/login/verifyCheck`, {
+			await axios.post(`${SERVER}/auth/login/verifyCheck`, {
 				id 
 			});
 			alert('로그인 성공!');
 		} catch (err) {
 			setId('');
 			setPw('');
-			alert('이메일 인증을 먼저 해주세요!');
+			switch (err.response.status) {
+				case 401:
+					alert('이메일 인증을 먼저 해주세요!');
+					break;
+				default:
+					alert('서버 오류');
+			}
+
 			return ;
 		}
 
 		setId('');
 		setPw('');
+
 	}
 
 	return (
