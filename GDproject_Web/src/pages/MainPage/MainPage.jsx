@@ -20,16 +20,21 @@ const MainPage = () => {
 				</div>
 			</div>
 
-			<div className="downLoad">
-
-			</div>
-
 			<div className="menu">
+				<div className="downLoad">
+					<div className="icon"></div>
+				</div>
+
 				<div className="menuTop">
+					<div className="gameStart"></div>
+				</div>
+
+				<div className="menuBottom">
 
 				</div>
-				<div className="menuBottom">
-					
+
+				<div className="menuLogin">
+
 				</div>
 			</div>
 		</div>

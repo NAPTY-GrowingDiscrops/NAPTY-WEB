@@ -50,35 +50,56 @@ body {
 		.menu{
 			position: relative;
 			top: -212px;
-			width: 1549px;
+			width: 1584px;
 			height: 212px;
-			margin: auto;
+			margin: 0 150px;
 			z-index: 3;
 
 			background-color: blue;
-
+			
+			.downLoad{
+				position: relative;
+				float: left;
+				height: 106px;
+				padding-top: 71px;
+				z-index: 3;
+	
+				background-color: bisque;
+	
+				.icon{
+					width: 35px;
+					height: 35px;
+					
+					background-color: black;
+				}
+			}
 			.menuTop{
-				width: 100%;
+				float: left;
+				width: 916px;
 				height: 106px;
 
 				background-color: blueviolet;
+
+				.gameStart{
+					width: 281px;
+					height: 106px;
+					background: #7E6B5A;
+				}
 			}
 			.menuBottom{
-				width: 100%;
+				float: left;
+				width: 916px;
 				height: 106px;
 
 				background-color: brown;
 			}
-		}
-		.downLoad{
-			position: relative;
-			top: -106px;
-			width: 35px;
-			height: 106px;
-			margin-left: 150px;
-			z-index: 3;
-
-			background-color: bisque;
+			.menuLogin{
+				float: right;
+				width: 530px;
+				height: 212px;
+				margin-top: -106px;
+				background-color: #7E6B5A;
+			}
 		}
 	}
 }
