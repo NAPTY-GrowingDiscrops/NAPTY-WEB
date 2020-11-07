@@ -11,32 +11,38 @@ import './MainPage.scss';
 const MainPage = () => {
 
   return (
-    <div className="main">
+    <div className="all">
 
 		<div className="mainTop">
-			<div className="mainBackground">
-				<div className="mainContent">
-					<img className='logo' src={logoPNG} alt="logo" />
-				</div>
-			</div>
-
-			<div className="menu">
-				<div className="downLoad">
-					<div className="icon"></div>
-				</div>
-
-				<div className="menuTop">
-					<div className="gameStart"></div>
-				</div>
-
-				<div className="menuBottom">
-					<div className="menuContent">
-						
+			<div className="main">
+				<div className="mainBackground">
+					<div className="mainContent">
+						<img className='logo' src={logoPNG} alt="logo" />
 					</div>
 				</div>
 
-				<div className="menuLogin">
+				<div className="menu">
+					<div className="downLoad">
+						<div className="icon"></div>
+					</div>
 
+					<div className="menuTop">
+						<div className="gameStart"></div>
+					</div>
+
+					<div className="menuBottom">
+						<div className="menuContent">
+
+						</div>
+					</div>
+
+					<div className="menuLogin">
+
+					</div>
+				</div>
+
+				<div className="content">
+					
 				</div>
 			</div>
 		</div>

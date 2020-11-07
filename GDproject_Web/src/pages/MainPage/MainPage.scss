@@ -14,7 +14,7 @@ body {
          url(../../font/DungGeunMo.ttf) format('truetype');
 }
 
-.main{
+.all{
 	position: relative;
     width: 100%;
 	min-width: 1600px;
@@ -25,21 +25,24 @@ body {
 		height: 634px;
 		z-index: 1;
 
-		background-color: aquamarine;
+		.main{
+			position: relative;
+			width: 100%;
+			height: 422px;
+
+			background-color: white;
+		}
 
 		.mainBackground{
 			position: relative;
 			width: 100%;
 			height: 528px;
-			background-color: white;
 			z-index: 2;
 
 			.mainContent{
 				width: 1549px;
 				height: 423px;
 				margin: auto;
-
-				background-color: aqua;
 
 				.logo{
 					width: 220px;
@@ -55,10 +58,7 @@ body {
 			height: 212px;
 			max-width: 1584px;
 			z-index: 3;
-
 			margin: 0 -809px;
-
-			background-color: blue;
 			
 			.downLoad{
 				position: relative;
@@ -66,8 +66,6 @@ body {
 				height: 106px;
 				padding-top: 71px;
 				z-index: 3;
-	
-				background-color: bisque;
 	
 				.icon{
 					width: 35px;
@@ -81,15 +79,13 @@ body {
 				width: 916px;
 				height: 106px;
 
-				background-color: blueviolet;
-
 				.gameStart{
-					float: left;
-					width: 274px;
+					position: relative;
+					top: -105px;
+					width: 210px;
 					height: 106px;
-					background: #7E6B5A;
 					border-right: 70px solid transparent;
-				    border-bottom: 105px solid #7E6B5A;
+					border-bottom: 105px solid #7E6B5A;
 				}
 			}
 			.menuBottom{
@@ -98,12 +94,9 @@ body {
 				height: 106px;
 				padding-left: 281px;
 
-				background-color: brown;
-
 				.menuContent{
-					width: 635px;
+					width: 565px;
 					height: 106px;
-					background-color: #7E6B5A;
 					border-left: 70px solid transparent;
     				border-top: 105px solid #7E6B5A;
 				}
