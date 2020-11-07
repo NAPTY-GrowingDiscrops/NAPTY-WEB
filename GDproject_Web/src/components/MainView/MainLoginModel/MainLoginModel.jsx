@@ -16,27 +16,33 @@ const MainLogin = ({ setIsLogin }) => {
 			const resp = await axios.post(`${SERVER}/auth/login`, {
 				id, pw
 			});
-			alert('로그인!');
 		} catch (err) {
 			setId('');
 			setPw('');
 			switch (err.response.status) {
 				case 400:
+					alert('아무것도 입력하지 않았습니다');
+					break;
+				case 401:
+					alert('ID나 비밀번호를 확인해주세요');
+					break;
+				default:
+					alert('서버 오류');
 			}
-			alert('아이디나 비밀번호를 다시 확인해주세요');
+			return ;
 		}
 
-		// try {
-		// 	const resp = await axios.post(`${SERVER}/auth/login/verifyCheck`, {
-		// 		id 
-		// 	});
-		// 	alert('이메일 인증이 완료된 계정입니다!');
-		// } catch (err) {
-		// 	setId('');
-		// 	setPw('');
-		// 	alert('이메일 인증을 먼저 해주세요!');
-		// 	return ;
-		// }
+		try {
+			const resp = await axios.post(`${SERVER}/auth/login/verifyCheck`, {
+				id 
+			});
+			alert('로그인 성공!');
+		} catch (err) {
+			setId('');
+			setPw('');
+			alert('이메일 인증을 먼저 해주세요!');
+			return ;
+		}
 
 		setId('');
 		setPw('');
