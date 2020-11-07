@@ -48,13 +48,12 @@ const MainLogin = ({ setIsLogin }) => {
 				default:
 					alert('서버 오류');
 			}
-
 			return ;
 		}
 
 		setId('');
 		setPw('');
-
+		this.props.setIsLogin(true);
 	}
 
 	return (
