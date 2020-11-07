@@ -14,120 +14,55 @@ body {
          url(../../font/DungGeunMo.ttf) format('truetype');
 }
 
-.Main {
-  position: relative;
-	width: 100%;
-	min-width: 1600px;
-
-	z-index: 1;
-	
-	
-	
-	.logo_div {
-		position: relative;         
-		height: 0;
-		
-		margin: 0 1450px 0 0;
-
-		.logo {
-			position: relative;
-			left: 50%;               
-			top: 10px;
-							
-			width: auto;
-			height: 90px;
-
-			z-index: 2;
-		}
-	}
-
-  .content {
-    width: 100%;
-		height: 1483px;
-		margin: 0;
-		padding: 0;
-
-    background-color: #EBEBEB;
-
-    .top {
+.main{
 	position: relative;
     width: 100%;
-	height: 527px;
-    background-color: white;
-	overflow: hidden;
-
-      .img_file {
+	min-width: 1600px;
+	
+	.mainTop{
 		position: relative;
-        width: 100%;
-        height: auto;
-		max-width: initial;
+		width: 100%;
+		height: 634px;
+		z-index: 1;
 
-      	z-index: 1;
-      }
-		}
-	.button {	    
+		background-color: aquamarine;
 
-		float: left;
-
-		.button_box {
+		.mainBackground{
 			position: relative;
-			top: -100px;
+			width: 100%;
+			height: 528px;
+			background-color: white;
+			z-index: 2;
 
-			width: 937px;
+			.mainContent{
+				width: 1549px;
+				height: 423px;
+				margin: auto;
+
+				background-color: aqua;
+
+				.logo{
+					width: 220px;
+					margin-top: 35px;
+				}
+			}
+		}
+		.menu{
+			position: relative;
+			top: -200px;
+			width: 1549px;
 			height: 212px;
-
-			margin-top: -5px;
-
-			background-color: yellow;
+			margin: auto;
 			z-index: 3;
 
-			.start {
-				position: relative;
-			}
+			background-color: blue;
 		}
-	}
+		.downLoad{
+			position: relative;
+			width: 35px;
+			height: 106px;
 
-    .LoginBox {
-      position: relative;
-      top: -500px;
-      left: 50%;
-
-			margin-left: 255px;
-
-      z-index: 2;
-    }
-
-    .boxes {
-      align-items: center;
-      width: 1577px;
-      height: 530px;
-
-      text-align: center;
-      color: white;
-            
-			margin: auto;
-
-			.box1 {
-				float: left;
-
-				width: 937px;
-				height: 530px;
-
-				background: #59493F;
-				border-radius: 30px;
-
-				margin-right: 110px;
-			}
-
-			.box2 {
-				float: left;
-
-				width: 530px;
-				height: 530px;
-
-				background: #59493F;
-				border-radius: 30px;;
-			}
+			background-color: bisque;
 		}
 	}
 }
