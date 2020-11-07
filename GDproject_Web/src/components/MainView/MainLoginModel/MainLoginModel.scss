@@ -21,32 +21,14 @@ body {
     width: 530px;
     height: 215px;
 
+    float: left;
+
     border-radius: 10px;
 
     background-color: #7E6B5A;
 
-        .loginInputBox {
-            margin: 35px 0 0 42px;
-            float: left;
-
-            .loginInput {
-                width: 300px;
-                height: 57px;
-
-                text-indent: 21px;
-                font-family: DungGeunMo;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 24px;
-                line-height: 24px;
-
-                border: none;
-                border-radius: 10px;
-            }
-        }
-
     .loginBtn {
-        margin: 33px 39px 0 0;
+        margin: 33px 43px 0 19px;
 
         background-color: #59493F;
         float: right;
@@ -64,4 +46,27 @@ body {
         border: none;
         border-radius: 16px;
     }
+
+    .loginInputBox {
+        margin-top: 35px;
+        float: right;
+
+        .loginInput {
+            width: 300px;
+            height: 57px;
+            float: right;
+
+            text-indent: 21px;
+            font-family: DungGeunMo;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 24px;
+
+            border: none;
+            border-radius: 10px;
+        }
+    }
+
+
 }

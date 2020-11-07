@@ -11,7 +11,6 @@ const MainPage = () => {
 
   return (
     <div className='Main'>
-			
 
 			<div className='logo_div'>
    	   <img src={logoPNG} className='logo' alt='logo'/>

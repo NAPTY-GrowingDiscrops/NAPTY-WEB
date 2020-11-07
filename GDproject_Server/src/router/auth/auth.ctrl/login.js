@@ -8,6 +8,12 @@ const login = async (req, res) => {
 
     try {
 
+        if (!(body.id) && !(body.pw)) {
+            return res.status(400).json({
+                message: "ID나 비밀번호를 입력해주세요",
+            });
+        }
+
         const user = await models.User.findOne({
             where: {
                 id: body.id,
@@ -23,6 +29,7 @@ const login = async (req, res) => {
         
         const tokenA = jwt.sign({
             id: user.id,
+            name: user.name
         },
         secretObjA.secret, {
             expiresIn: '30d',
