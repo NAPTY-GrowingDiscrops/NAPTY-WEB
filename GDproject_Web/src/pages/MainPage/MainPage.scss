@@ -50,10 +50,13 @@ body {
 		.menu{
 			position: relative;
 			top: -212px;
-			width: 1584px;
+			left: 50%;
+			width: 100%;
 			height: 212px;
-			margin: 0 150px;
+			max-width: 1584px;
 			z-index: 3;
+
+			margin: 0 -809px;
 
 			background-color: blue;
 			
@@ -81,23 +84,35 @@ body {
 				background-color: blueviolet;
 
 				.gameStart{
-					width: 281px;
+					float: left;
+					width: 274px;
 					height: 106px;
 					background: #7E6B5A;
+					border-right: 70px solid transparent;
+				    border-bottom: 105px solid #7E6B5A;
 				}
 			}
 			.menuBottom{
 				float: left;
 				width: 916px;
 				height: 106px;
+				padding-left: 281px;
 
 				background-color: brown;
+
+				.menuContent{
+					width: 635px;
+					height: 106px;
+					background-color: #7E6B5A;
+					border-left: 70px solid transparent;
+    				border-top: 105px solid #7E6B5A;
+				}
 			}
 			.menuLogin{
 				float: right;
 				width: 530px;
 				height: 212px;
-				margin-top: -106px;
+				margin-top: -212px;
 				background-color: #7E6B5A;
 			}
 		}

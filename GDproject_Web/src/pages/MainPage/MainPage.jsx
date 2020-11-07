@@ -30,7 +30,9 @@ const MainPage = () => {
 				</div>
 
 				<div className="menuBottom">
-
+					<div className="menuContent">
+						
+					</div>
 				</div>
 
 				<div className="menuLogin">
