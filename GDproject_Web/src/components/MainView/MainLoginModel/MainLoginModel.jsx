@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import cookie from 'react-cookie';
 
 import SERVER from '../../../store/config';
 import { setToken } from '../../../lib/token';
@@ -18,7 +17,7 @@ const MainLogin = ({ setIsLogin }) => {
 		try {
 			const login = await axios.post(`${SERVER}/auth/login`, {
 				id, pw
-			}, {withCredentials: true, credentials: 'include'});
+			});
 			token = login.data.token;
 		} catch (err) {
 			setId('');                     
