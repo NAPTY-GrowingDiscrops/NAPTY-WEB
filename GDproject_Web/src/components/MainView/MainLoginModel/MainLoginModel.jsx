@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import cookie from 'react-cookie';
+
 import SERVER from '../../../store/config';
 import { setToken } from '../../../lib/token';
 
@@ -13,10 +15,10 @@ const MainLogin = ({ setIsLogin }) => {
 
 	const login = async () => { 
 		try {
-			await axios.post(`${SERVER}/auth/login`, {
+			const login = await axios.post(`${SERVER}/auth/login`, {
 				id, pw
-			});
-			
+			}, {withCredentials: true, credentials: 'include'});
+			console.log(login);
 		} catch (err) {
 			setId('');                     
 			setPw('');
@@ -59,12 +61,12 @@ const MainLogin = ({ setIsLogin }) => {
 	return (
 		<div className='LoginBox'>
 			<button className="loginBtn" onClick={e => login()}>로그인</button>
-				<div className='loginInputBox'>
-					<input style={{ marginBottom: '10px' }} className='loginInput' type='text' placeholder='아이디' value={id} onChange={e => setId(e.target.value)} /> <br/>
-					<input className='loginInput' type='text' placeholder='비밀번호' value={pw} onChange={e => setPw(e.target.value)}/> <br />
-				</div>
+			<div className='loginInputBox'>
+				<input style={{ marginBottom: '10px' }} className='loginInput' type='text' placeholder='아이디' value={id} onChange={e => setId(e.target.value)} /> <br/>
+				<input className='loginInput' type='text' placeholder='비밀번호' value={pw} onChange={e => setPw(e.target.value)}/> <br />
 			</div>
-		);
+		</div>
+	);
 }
 
 export default MainLogin;

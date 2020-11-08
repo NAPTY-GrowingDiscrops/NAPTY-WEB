@@ -35,8 +35,9 @@ const login = async (req, res) => {
             expiresIn: '30d',
         });
 
-        return res.status(200).cookie('auth', tokenA).json({
+        return res.status(200).json({
             message: "로그인 성공",
+            tokenA,
         });
 
     } catch (err) {

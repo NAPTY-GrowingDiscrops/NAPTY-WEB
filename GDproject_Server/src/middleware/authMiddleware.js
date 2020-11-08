@@ -4,12 +4,13 @@ const secretObjA = require('../config/jwtAuth');
 const jwt = require('jsonwebtoken'); 
 
 module.exports = async (req, res, next) => {
-    const cookie = req.cookies.auth;
+    const token = req.headers.token;
 
-    if (!cookie) {
+    if (!token) {
         next();
     } else {
-        const decoded = jwt.verify(cookie, secretObjA.secret);
+        const decoded = jwt.verify(token, secretObjA.secret);
+
         const user = await models.User.findOne({
             where: {
                 id: decoded.id,
@@ -22,3 +23,4 @@ module.exports = async (req, res, next) => {
 
     }
 }
+

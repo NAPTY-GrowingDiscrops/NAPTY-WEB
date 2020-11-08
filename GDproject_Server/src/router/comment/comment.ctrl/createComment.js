@@ -3,7 +3,7 @@ const models = require('../../../../models');
 const createComment = async (req, res) => {
     const { body, user } = req;
     const { idx } = req.params;
-
+    
     if (!user) {
         return res.status(401).json({
             message: "로그인을 먼저 해주세요!",
@@ -12,7 +12,7 @@ const createComment = async (req, res) => {
 
     try {
 
-        const post = await models.findOne({
+        const post = await models.Post.findOne({
             where: {
                 idx: idx,
             },
