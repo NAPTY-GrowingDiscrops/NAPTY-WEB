@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ViewBottom from '../../components/ViewBottom/ViewBottom';
 import MainLogin from '../../components/MainView/MainLoginModel/MainLoginModel'
@@ -10,6 +10,8 @@ import pumkin from './Img/pinkPumkinWeb.png';
 import './MainPage.scss';
 
 const MainPage = () => {
+
+	const [ IsLogin, setIsLogin ] = useState(false);
 
   return (
     <div className="all">
@@ -38,7 +40,11 @@ const MainPage = () => {
 
 				
 				<div className="menuLogin">
-					<MainLogin />
+					{ 
+					IsLogin ?
+							<div></div>
+						: <MainLogin setIsLogin={setIsLogin} />
+					}
 				</div>
 			</div>
 
