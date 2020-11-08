@@ -76,8 +76,6 @@ body {
 				.icon{
 					width: 35px;
 					height: 35px;
-					
-					background-color: black;
 				}
 			}
 			.menuTop{
@@ -91,7 +89,14 @@ body {
 					width: 210px;
 					height: 106px;
 					border-right: 70px solid transparent;
-					border-bottom: 105px solid #7E6B5A;
+					border-bottom: 105px solid #59493F;
+				}
+				.gameStartMent{
+					position: relative;
+					margin: -175px 40px;
+					color: white;
+					font-family: DungGeunMo;
+					font-size: 36px;
 				}
 			}
 			.menuBottom{
@@ -104,7 +109,33 @@ body {
 					width: 565px;
 					height: 106px;
 					border-left: 70px solid transparent;
-    				border-top: 105px solid #7E6B5A;
+					border-top: 105px solid #7E6B5A;
+					
+					.menuBox{
+						width: 542px;
+						height: 106px;
+						margin-top: -106px;
+						text-align: center;
+						padding: 40px 0;
+
+						.menuMent{
+							float: left;
+							width: 160px;
+							height: 106px;
+							color: white;
+							margin-right: 30px;
+							font-size: 24px;
+							font-family: DungGeunMo;
+						}
+						.lastMenu{
+							float: left;
+							width: 160px;
+							height: 106px;
+							color: white;
+							font-size: 24px;
+							font-family: DungGeunMo;
+						}
+					}
 				}
 			}
 			.menuLogin{

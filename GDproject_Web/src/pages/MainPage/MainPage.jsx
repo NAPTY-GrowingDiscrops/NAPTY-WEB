@@ -9,6 +9,7 @@ import logoPNG from './logo.png';
 import img1 from './Img/background.jpg';
 // import arrowleft from './Img/arrowLeft.svg';
 import pumkin from './Img/pinkPumkinWeb.png';
+import download from './Img/download.png';
 
 import './MainPage.scss';
 
@@ -40,16 +41,23 @@ const MainPage = () => {
 
 				<div className="menu">
 					<div className="downLoad">
-						<div className="icon"></div>
+						<div className="icon">
+							<a href="/"><img src={download} alt="download"/></a>
+						</div>
 					</div>
 
 					<div className="menuTop">
 						<div className="gameStart"></div>
+						<p className="gameStartMent">게임시작</p>
 					</div>
 
 					<div className="menuBottom">
 						<div className="menuContent">
-
+							<div className="menuBox">
+								<div className="menuMent">게임정보</div>
+								<div className="menuMent">게시판</div>
+								<div className="lastMenu">고객센터</div>
+							</div>
 						</div>
 					</div>
 
