@@ -11,7 +11,7 @@ import './MainPage.scss';
 
 const MainPage = () => {
 
-	const [ IsLogin, setIsLogin ] = useState(false);
+	const [IsLogin, setIsLogin] = useState(false);
 
   return (
     <div className="all">
