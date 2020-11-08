@@ -19,8 +19,11 @@ const MainPage = () => {
 
 		<div className="mainTop">
 			<div className="mainBackground">
+				<div className='mainImage'>
+					<img src={img1} alt='background1' />
+				</div>
 				<div className="mainContent">
-					<img className='logo' src={logoPNG} alt="logo" />
+					<img className='logo' src={logoPNG} alt="logo" className='img_file' />
 				</div>
 			</div>
 

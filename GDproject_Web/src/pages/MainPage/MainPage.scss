@@ -19,7 +19,7 @@ body {
     width: 100%;
 	min-width: 1600px;
 	
-	.mainTop{
+	.mainTop{ 
 		position: relative;
 		width: 100%;
 		height: 634px;
@@ -31,6 +31,21 @@ body {
 			height: 528px;
 			z-index: 2;
 			background-color: white;
+
+			.mainImg {
+				position: relative;
+				width: 100%;
+				height: 528px;
+				z-index: 1;
+				overflow: hidden;
+
+				.img_file {
+					position: relative;
+					width: 100%;
+					height: auto;
+					
+				}
+			}
 
 			.mainContent{
 				width: 1549px;

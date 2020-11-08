@@ -3,6 +3,11 @@ import React from 'react';
 import './MainProfile.scss';
 
 const MainProfile = ({ setIsLogin }) => {
+
+    const logout = () => {
+
+    }
+
     return (
         <div>
             <div className="profilePic">
