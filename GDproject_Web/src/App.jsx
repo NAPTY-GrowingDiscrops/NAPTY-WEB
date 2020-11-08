@@ -1,11 +1,17 @@
 import React from 'react';
-import MainPage from './pages/MainPage/MainPage';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-function App() {
+import MainPage from './pages/MainPage/MainPage';
+import IntroducePage from './pages/IntroducePage/IntroducePage'
+
+const App = () => {
   return (
-    <div>
-      <MainPage />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' exact={true} component={MainPage} />
+        <Route path='/introduce' component={IntroducePage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
