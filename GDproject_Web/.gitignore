@@ -11,7 +11,7 @@
 # production
 /build
 
-src/lib/decoded.js
+# src/lib/decoded.js
 
 # misc
 .DS_Store
