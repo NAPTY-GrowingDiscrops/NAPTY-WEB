@@ -12,13 +12,14 @@ const MainLogin = ({ setIsLogin }) => {
 
 	const [id, setId] = useState('');
 	const [pw, setPw] = useState('');
+	let token = {};
 
 	const login = async () => { 
 		try {
 			const login = await axios.post(`${SERVER}/auth/login`, {
 				id, pw
 			}, {withCredentials: true, credentials: 'include'});
-			console.log(login);
+			token = login.data.token;
 		} catch (err) {
 			setId('');                     
 			setPw('');
@@ -53,9 +54,13 @@ const MainLogin = ({ setIsLogin }) => {
 			return ;
 		}
 
+		setToken(token.token);
+
+		token = {};
 		setId('');
 		setPw('');
 		setIsLogin(true);
+
 	}
 
 	return (

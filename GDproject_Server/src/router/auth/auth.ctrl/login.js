@@ -27,7 +27,7 @@ const login = async (req, res) => {
             });
         }
         
-        const tokenA = jwt.sign({
+        const token = jwt.sign({
             id: user.id,
             name: user.name
         },
@@ -37,7 +37,9 @@ const login = async (req, res) => {
 
         return res.status(200).json({
             message: "로그인 성공",
-            tokenA,
+            token: {
+                token,
+            }
         });
 
     } catch (err) {

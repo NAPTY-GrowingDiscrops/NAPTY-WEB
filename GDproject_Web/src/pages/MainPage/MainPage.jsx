@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import ViewBottom from '../../components/ViewBottom/ViewBottom';
 import MainLogin from '../../components/MainView/MainLoginModel/MainLoginModel';
 import MainProfile from '../../components/MainView/MainProfile/MainProfile';
+import { getToken } from '../../lib/token';
 
 import logoPNG from './logo.png';
 import img1 from './Img/background.jpg';
 import arrowleft from './Img/arrowLeft.svg';
 import pumkin from './Img/pinkPumkinWeb.png';
+
 import './MainPage.scss';
 
 const MainPage = () => {
 
 	const [IsLogin, setIsLogin] = useState(false);
+
+	useEffect(() => {
+		if (getToken()) {
+			setIsLogin(true);
+		}
+	})
 
   return (
     <div className="all">
@@ -23,7 +31,7 @@ const MainPage = () => {
 					<img src={img1} alt='background1' />
 				</div>
 				<div className="mainContent">
-					<img className='logo' src={logoPNG} alt="logo" className='img_file' />
+					<img className='logo' src={logoPNG} alt="Logo" className='img_file' />
 				</div>
 			</div>
 
