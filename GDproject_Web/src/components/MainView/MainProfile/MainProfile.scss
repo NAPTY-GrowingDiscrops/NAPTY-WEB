@@ -1,0 +1,70 @@
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+    font-family: DungGeunMo;
+    font-style: normal;
+    font-style: normal;
+    font-weight: normal;
+
+    src: local('DungGeunMo'), 
+         url(../../../font/DungGeunMo.ttf) format('truetype');
+}
+
+.profilePic{
+    float: left;
+    width: 130px;
+    height: 130px;
+    margin: 30px;
+    border-radius: 100px;
+    background-color: #59493F;
+}
+.profileContent{
+    float: left;
+    width: 291px;
+    height: 130px;
+    margin-top: 30px;
+
+    .profileContentTop{
+        width: 100%;
+        height: 50%;
+        padding-top: 2px;
+
+        .profileName{
+            font-family: DungGeunMo;
+            font-size: 36px;
+            color: white;
+    
+            .profileN{
+                font-family: DungGeunMo;
+                font-size: 24px;
+                color: white;
+            }
+        }
+    }
+    .profileContentBottom{
+        width: 100%;
+        height: 65px;
+        padding-top: 30px;
+
+        .mainInfo{
+            font-family: DungGeunMo;
+            color: white;
+            text-decoration: none;
+
+        }
+        .logout{
+            float: right;
+            width: 105px;
+            height: 45px;
+            margin-top: -20px;
+            font-family: DungGeunMo;
+            font-size: 18px;
+            border: none;
+            border-radius: 0;
+            color: white;
+            background-color: #59493F;
+        }
+    }
+}
