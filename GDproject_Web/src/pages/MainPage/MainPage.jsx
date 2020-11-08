@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 import ViewBottom from '../../components/ViewBottom/ViewBottom';
-import MainLogin from '../../components/MainView/MainLoginModel/MainLoginModel'
+import MainLogin from '../../components/MainView/MainLoginModel/MainLoginModel';
+import MainProfile from '../../components/MainView/MainProfile/MainProfile';
 
 import logoPNG from './logo.png';
 import img1 from './Img/background.jpg';
@@ -42,7 +43,7 @@ const MainPage = () => {
 				<div className="menuLogin">
 					{ 
 					IsLogin ?
-							<div></div>
+							<MainProfile setIsLogin={setIsLogin} />
 						: <MainLogin setIsLogin={setIsLogin} />
 					}
 				</div>
