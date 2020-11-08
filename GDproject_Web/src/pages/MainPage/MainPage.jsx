@@ -5,43 +5,61 @@ import MainLogin from '../../components/MainView/MainLoginModel/MainLoginModel'
 
 import logoPNG from './logo.png';
 import img1 from './Img/background.jpg';
+import arrowleft from './Img/arrowLeft.svg';
+import pumkin from './Img/pinkPumkinWeb.png';
 import './MainPage.scss';
 
 const MainPage = () => {
 
   return (
-    <div className='Main'>
+    <div className="all">
 
-			<div className='logo_div'>
-   	   <img src={logoPNG} className='logo' alt='logo'/>
-  	  </div>
-      <div className='content'>
-
-				<div className='top'>
-						<img src={img1} className='img_file' alt='mainPic' />
-					</div>
-
-				<div className='button'>
-					<div className='button_box'>
-						<div className='start'></div>
-					</div>
-				</div>
-
-				<MainLogin className='LoginBox'/>
-
-				<div className='boxes'>
-					<div className='box1'>
-						공지사항
-					</div>
-					<div className='box2'>
-						인게임 사진
-					</div>
+		<div className="mainTop">
+			<div className="mainBackground">
+				<div className="mainContent">
+					<img className='logo' src={logoPNG} alt="logo" />
 				</div>
 			</div>
 
-    	<ViewBottom />
+			<div className="menu">
+				<div className="downLoad">
+					<div className="icon"></div>
+				</div>
 
-    	</div>
+				<div className="menuTop">
+					<div className="gameStart"></div>
+				</div>
+
+				<div className="menuBottom">
+					<div className="menuContent">
+
+					</div>
+				</div>
+
+				
+				<div className="menuLogin">
+					<MainLogin />
+				</div>
+			</div>
+
+			<div className="content">
+				<div className="noticeDec">
+					<img className="dec" src={pumkin} alt="pumkin"/>
+				</div>
+
+				<div className="mainNotice">
+
+				</div>
+
+				<div className="mainPost">
+
+				</div>
+			</div>
+			<div>
+				<ViewBottom />
+			</div>
+		</div>
+	</div>
     )
 }
 

@@ -14,119 +14,127 @@ body {
          url(../../font/DungGeunMo.ttf) format('truetype');
 }
 
-.Main {
-  position: relative;
-	width: 100%;
-	min-width: 1600px;
-
-	z-index: 1;
-	
-	
-	
-	.logo_div {
-		position: relative;         
-		height: 0;
-		
-		margin: 0 1450px 0 0;
-
-		.logo {
-			position: relative;
-			left: 50%;               
-			top: 10px;
-							
-			width: auto;
-			height: 90px;
-
-			z-index: 2;
-		}
-	}
-
-  .content {
-    width: 100%;
-		height: 1483px;
-		margin: 0;
-		padding: 0;
-
-    background-color: #EBEBEB;
-
-    .top {
+.all{
 	position: relative;
     width: 100%;
-	height: 527px;
-    background-color: white;
-	overflow: hidden;
-
-      .img_file {
+	min-width: 1600px;
+	
+	.mainTop{
 		position: relative;
-        width: 100%;
-        height: auto;
-		max-width: initial;
+		width: 100%;
+		height: 634px;
+		z-index: 1;
 
-      	z-index: 1;
-      }
-		}
-	.button {	    
-
-		float: left;
-
-		.button_box {
+		.mainBackground{
 			position: relative;
-			top: -100px;
+			width: 100%;
+			height: 528px;
+			z-index: 2;
+			background-color: white;
 
-			width: 937px;
-			height: 212px;
+			.mainContent{
+				width: 1549px;
+				height: 423px;
+				margin: auto;
 
-			margin-top: -5px;
-
-			background-color: yellow;
-			z-index: 3;
-
-			.start {
-				position: relative;
+				.logo{
+					width: 220px;
+					margin-top: 35px;
+				}
 			}
 		}
-	}
-
-    .LoginBox {
-      position: relative;
-      top: -500px;
-      left: 50%;
-
-			margin-left: 255px;
-
-      z-index: 2;
-    }
-
-    .boxes {
-      align-items: center;
-      width: 1577px;
-      height: 530px;
-
-      text-align: center;
-      color: white;
-            
-			margin: auto;
-
-			.box1 {
+		.menu{
+			position: relative;
+			top: -106px;
+			left: 50%;
+			width: 100%;
+			height: 212px;
+			max-width: 1584px;
+			z-index: 3;
+			margin: 0 -809px;
+			
+			.downLoad{
+				position: relative;
 				float: left;
-
-				width: 937px;
-				height: 530px;
-
-				background: #59493F;
-				border-radius: 30px;
-
-				margin-right: 110px;
+				height: 106px;
+				padding-top: 71px;
+				z-index: 3;
+	
+				.icon{
+					width: 35px;
+					height: 35px;
+					
+					background-color: black;
+				}
 			}
-
-			.box2 {
+			.menuTop{
 				float: left;
+				width: 916px;
+				height: 106px;
 
+				.gameStart{
+					position: relative;
+					top: -105px;
+					width: 210px;
+					height: 106px;
+					border-right: 70px solid transparent;
+					border-bottom: 105px solid #7E6B5A;
+				}
+			}
+			.menuBottom{
+				float: left;
+				width: 916px;
+				height: 106px;
+				padding-left: 281px;
+
+				.menuContent{
+					width: 565px;
+					height: 106px;
+					border-left: 70px solid transparent;
+    				border-top: 105px solid #7E6B5A;
+				}
+			}
+			.menuLogin{
+				float: right;
+				width: 530px;
+				height: 212px;
+				margin-top: -212px;
+				background-color: #7E6B5A;
+			}
+		}
+		.content{
+			position: relative;
+			width: 1549px;
+			height: 611px;
+			margin: -50px auto 192px;
+			
+			.noticeDec{
+				position: absolute;
+				float: left;
+				width: 916px;
+				height: 81px;
+
+				.dec{
+					width: 230px;
+				}
+			}
+			.mainNotice{
+				position: absolute;
+				float: left;
+				width: 916px;
+				height: 530px;
+				margin-top: 81px;
+				border-radius: 30px;
+				background-color: #59493F;
+			}
+			.mainPost{
+				position: relative;
+				float: right;
 				width: 530px;
 				height: 530px;
-
-				background: #59493F;
-				border-radius: 30px;;
+				top: 31px;
+				border-radius: 30px;
+				background-color: #59493F;
 			}
 		}
 	}
