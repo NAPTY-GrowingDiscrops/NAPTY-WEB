@@ -22,9 +22,7 @@ const MainProfile = ({ setIsLogin }) => {
 
     return (
         <div>
-            <div className="profilePic">
-
-            </div>
+            <div className="profilePic"></div>
 
             <div className="profileContent">
                 <div className="profileContentTop">
