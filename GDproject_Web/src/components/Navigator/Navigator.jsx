@@ -1,30 +1,26 @@
 import React from 'react'
 
 import './Navigator.scss';
-import logo from '../../pages/MainPage/logo.png';
+import logoPNG from '../../pages/MainPage/logo.png';
 
 const ViewTop = () => {
     return (
-			<div>
+			<div className="all">
 				<div className="topBox">
                     <div className="top">
                         <div className="logoBox">
-                            <img className="logo" src={logo} alt=""/>
-                        </div>
+							<img className='logo' src={logoPNG} alt="Logo" />
+						</div>
 
-                        <div className="menuBox">
-                            <div className="gameStart">
-
-                            </div>
-                            
+                        <div className="menu">
                             <div className="menuTop">
                                 <div className="menuContent">
-                                    
+
                                 </div>
                             </div>
 
                             <div className="menuBottom">
-
+                                <p className="gameStart">게임시작</p>
                             </div>
                         </div>
                     </div>

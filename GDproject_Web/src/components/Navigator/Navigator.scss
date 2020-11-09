@@ -16,12 +16,15 @@ body{
     src: local('DungGeunMo'), 
     url(../../font/DungGeunMo.ttf) format('truetype');
 }
+.all{
+    position: relative;
+    width: 100%;
+	min-width: 1600px;
+}
 .topBox{
     float: left;
     width: 100%;
     height: 263px;
-
-    background-color: lightblue;
 
     .top{
         float: left;
@@ -30,46 +33,46 @@ body{
         background-color: white;
 
         .logoBox{
-            width: 220px;
-            margin: 35px 30px 0 185px;
-
-            background-color: lightcoral;
+            position: relative;
+            width: 1549px;
+            margin: auto;
 
             .logo{
                 width: 220px;
+                margin: 35px 0 0 -9px;
             }
         }
-        .menuBox{
+        .menu{
+            position: relative;
             width: 100%;
             height: 210px;
+            margin-top: -53px;
 
-            background-color: lightcyan;
-
-            .gameStart{
-                float: left;
-                width: 435px;
-                height: 100%;
-
-                background-color: chocolate;
-            }
             .menuTop{
                 width: 100%;
                 height: 105px;
-
-                background-color: blueviolet;
+                padding-left: 435px;
 
                 .menuContent{
                     width: 100%;
                     height: 100%;
-
-                    background-color: cornflowerblue;
+                    border-left: 100px solid transparent;
+                    border-bottom: 105px solid #7E6B5A;
                 }
             }
             .menuBottom{
-                width: 100%;
+                width: 435px;
                 height: 105px;
+                border-right: 100px solid transparent;
+                border-top: 105px solid #59493F;
 
-                background-color: cadetblue;
+                .gameStart{
+                    font-size: 36px;
+                    font-family: DungGeunMo;
+                    color: white;
+                    text-align: center;
+                    margin-top: -70px;
+                }
             }
         }
     }
