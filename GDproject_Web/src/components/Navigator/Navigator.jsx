@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import './Navigator.scss';
 import logoPNG from '../../pages/MainPage/logo.png';
@@ -15,7 +16,6 @@ const ViewTop = () => {
                         <div className="menu">
                             <div className="menuTop">
                                 <div className="menuContent">
-
                                 </div>
                             </div>
 
