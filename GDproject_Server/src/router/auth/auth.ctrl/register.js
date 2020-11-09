@@ -1,15 +1,28 @@
  const models = require('../../../../models');
+ const encrypt = require('../../../config/encrypt');
  
  const register = async (req, res) => {
     const { body }  = req;
 
-    try {
+    if (!(body.id) || !(body.pw) || !(body.name) || !(body.email)) {
+        return res.status(401).json({
+            message: "하나라도 입력되지 않은 항목이 있습니다",
+        });
+    }
 
-        await models.User.create({
-            id: body.id,
-            pw: body.pw,
+    try {
+        const data = {
+            id: encrypt(body.id),
+            pw: encrypt(body.pw),
             name: body.name,
             email: body.email,
+        }
+
+        await models.User.create({
+            id: data.id,
+            pw: data.pw,
+            name: data.name,
+            email: data.email,
             emailReq: false,
         });
 
