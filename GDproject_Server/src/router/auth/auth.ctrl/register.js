@@ -3,7 +3,7 @@
  
  const register = async (req, res) => {
     const { body }  = req;
-    const pwCheck = /^[A-Z](?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    const pwCheck = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
     if (!(body.id) || !(body.pw) || !(body.name) || !(body.email)) {
         return res.status(401).json({

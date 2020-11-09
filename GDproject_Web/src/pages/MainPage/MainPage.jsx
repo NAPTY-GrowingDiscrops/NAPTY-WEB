@@ -73,7 +73,7 @@ const MainPage = () => {
 						<div className="menuLogin">
 							{ 
 							IsLogin ?
-									<MainProfile setIsLogin={setIsLogin} />
+								<MainProfile setIsLogin={setIsLogin} />
 								: <MainLogin setIsLogin={setIsLogin} />
 							}
 						</div>

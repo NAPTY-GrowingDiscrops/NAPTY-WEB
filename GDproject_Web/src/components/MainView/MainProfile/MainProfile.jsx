@@ -16,7 +16,7 @@ const MainProfile = ({ setIsLogin }) => {
 
   useEffect(() => {
 		const token = getToken();
-		const name = decoded(token);
+        const name = decoded(token);
 		setName(name.name);
 	}, []);
 
