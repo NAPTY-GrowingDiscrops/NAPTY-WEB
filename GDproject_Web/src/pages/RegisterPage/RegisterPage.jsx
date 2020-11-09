@@ -6,10 +6,25 @@ import './RegisterPage.scss';
 const RegisterPage = () => {
 
 	const [name, setName] = useState('');
+	const [id, setId] = useState('');
+	const [pw, setPw] = useState('');
+	const [checkPw, setCheckPw] = useState('');
+	const [email, setEmail] = useState('');
 
-	const idCheck = (name) => {
-		setName(name);
+	const nameCheck = (name) => {
+		alert(name);
+	}
+	
+	const idCheck = (id) => {
+		alert(id);
+	}
 
+	const pwCheck = (pw) => {
+		alert(pw);
+	}
+
+	const emailCheck = (email) => {
+		alert(email);
 	}
 
 	const register = async () => {
@@ -29,23 +44,23 @@ const RegisterPage = () => {
 
 						<div className='input_boxes'>
 							<p className='input_boxes_text'>이름</p>
-							<input className='input_boxes_input' type="text" value={name} onChange={e => idCheck(e.targe.value)}/>
+							<input className='input_boxes_input' type="text" value={name} onChange={e => setName(e.target.value)}/>
 						</div>
 						<div className='input_boxes'>
 							<p className='input_boxes_text'>아이디</p>
-							<input className='input_boxes_input' type="text"/>
+							<input className='input_boxes_input' type="text" value={id} onChange={e => setId(e.target.value)} />
 						</div>
 						<div className='input_boxes'>
 							<p className='input_boxes_text'>비밀번호</p>
-							<input className='input_boxes_input' type="text"/>						
+							<input className='input_boxes_input' type="text" value={pw} onChange={e => setPw(e.target.value)}/>
 						</div>
 						<div className='input_boxes'>
 							<p className='input_boxes_text'>비밀번호 확인</p>
-							<input className='input_boxes_input' type="text"/>					
+							<input className='input_boxes_input' type="text" value={checkPw} onChange={e => setCheckPw(e.target.value)}/>
 						</div>
 						<div className='input_boxes'>
 							<p className='input_boxes_text'>이메일</p>
-							<input className='input_boxes_input' type="text"/>				
+							<input className='input_boxes_input' type="text" value={email} onChange={e => setEmail(e.target.value)} />				
 						</div>
 
 						<div className='button_div'>
