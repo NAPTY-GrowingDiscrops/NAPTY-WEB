@@ -1,5 +1,6 @@
 const models = require('../../../../models');
 const secretObjA = require('../../../config/jwtAuth');
+const encrypt = require('../../../config/encrypt');
 
 const jwt = require('jsonwebtoken');
 
@@ -14,10 +15,15 @@ const login = async (req, res) => {
             });
         }
 
+        const data = {
+            id: encrypt(body.id),
+            pw: encrypt(body.pw),
+        };
+
         const user = await models.User.findOne({
             where: {
-                id: body.id,
-                pw: body.pw,
+                id: data.id,
+                pw: data.pw,
             },
         });
 
