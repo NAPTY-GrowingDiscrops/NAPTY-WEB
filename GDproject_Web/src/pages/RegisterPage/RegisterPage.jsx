@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import logo from './logo_white.png';
 import './RegisterPage.scss';
 
 const RegisterPage = () => {
 
+	const [name, setName] = useState('');
+
+	const idCheck = (name) => {
+		setName(name);
+
+	}
+
 	const register = async () => {
+
 		alert('회원가입 버튼!!!!!');
 	}
 
@@ -21,7 +29,7 @@ const RegisterPage = () => {
 
 						<div className='input_boxes'>
 							<p className='input_boxes_text'>이름</p>
-							<input className='input_boxes_input' type="text"/>
+							<input className='input_boxes_input' type="text" value={name} onChange={e => idCheck(e.targe.value)}/>
 						</div>
 						<div className='input_boxes'>
 							<p className='input_boxes_text'>아이디</p>
