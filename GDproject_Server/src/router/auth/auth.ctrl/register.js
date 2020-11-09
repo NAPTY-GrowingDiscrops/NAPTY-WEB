@@ -3,6 +3,7 @@
  
  const register = async (req, res) => {
     const { body }  = req;
+    const pwCheck = /^[A-Z](?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
     if (!(body.id) || !(body.pw) || !(body.name) || !(body.email)) {
         return res.status(401).json({
@@ -11,6 +12,12 @@
     }
 
     try {
+        if (!(pwCheck.test(body.pw))) {
+            return res.status(403).json({
+                message: "알맞은 비밀번호 형식이 아닙니다.",
+            });
+        }
+
         const data = {
             id: encrypt(body.id),
             pw: encrypt(body.pw),

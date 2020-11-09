@@ -1,13 +1,24 @@
 const models = require('../../../../models');
+const encrypt = require('../../../config/encrypt');
 
 const verifyCheck = async (req, res) => {
     const { body } = req;
 
+    if(!(body.id)) {
+        return res.status(400).json({
+            message: "아이디가 입력되지 않았습니다",
+        });
+    }
+
     try {
+
+        const data = {
+            id: encrypt(body.id),
+        };
 
         const check = await models.User.findOne({
             where: {
-                id: body.id,
+                id: data.id,
             },
         });
 
