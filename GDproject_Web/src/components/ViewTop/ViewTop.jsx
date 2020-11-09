@@ -5,7 +5,7 @@ import './ViewTop.scss';
 const ViewTop = () => {
     return (
 			<div>
-      	TopBar
+				
 			</div>
     )
 }
