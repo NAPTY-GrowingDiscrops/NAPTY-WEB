@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './ViewTop.scss';
+import './Navigator.scss';
 
 const ViewTop = () => {
     return (

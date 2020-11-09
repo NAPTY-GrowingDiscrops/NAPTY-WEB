@@ -67,7 +67,7 @@ const MainLogin = ({ setIsLogin }) => {
 			<button className="loginBtn" onClick={e => login()}>로그인</button>
 			<div className='loginInputBox'>
 				<input style={{ marginBottom: '10px' }} className='loginInput' type='text' placeholder='아이디' value={id} onChange={e => setId(e.target.value)} /> <br/>
-				<input className='loginInput' type='text' placeholder='비밀번호' value={pw} onChange={e => setPw(e.target.value)}/> <br />
+				<input className='loginInput' type='password' placeholder='비밀번호' value={pw} onChange={e => setPw(e.target.value)}/> <br />
 				<p className="loginMent">회원가입 | 아이디 찾기 | 비밀번호 찾기</p>
 			</div>
 		</div>
