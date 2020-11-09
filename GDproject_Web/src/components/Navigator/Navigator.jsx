@@ -8,9 +8,7 @@ const ViewTop = () => {
 			<div>
 				<div className="topBox">
                     <div className="top">
-                        <div className="logoBox">
-                            <img className="logo" src={logo} alt=""/>
-                        </div>
+                        
                     </div>
                 </div>
 			</div>
