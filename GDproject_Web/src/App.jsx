@@ -2,14 +2,14 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import MainPage from './pages/MainPage/MainPage';
-import IntroducePage from './pages/IntroducePage/IntroducePage'
+import SubPage from './pages/SubPage/SubPage'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path='/' exact={true} component={MainPage} />
-        <Route path='/subPage' component={IntroducePage} />
+        <Route path='/subPage' component={SubPage} />
       </Switch>
     </BrowserRouter>
   );
