@@ -40,9 +40,37 @@ body{
             }
         }
         .menuBox{
-            
+            width: 100%;
+            height: 210px;
 
             background-color: lightcyan;
+
+            .gameStart{
+                float: left;
+                width: 435px;
+                height: 100%;
+
+                background-color: chocolate;
+            }
+            .menuTop{
+                width: 100%;
+                height: 105px;
+
+                background-color: blueviolet;
+
+                .menuContent{
+                    width: 100%;
+                    height: 100%;
+
+                    background-color: cornflowerblue;
+                }
+            }
+            .menuBottom{
+                width: 100%;
+                height: 105px;
+
+                background-color: cadetblue;
+            }
         }
     }
 }
