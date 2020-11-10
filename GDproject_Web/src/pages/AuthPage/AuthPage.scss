@@ -19,7 +19,7 @@ html, body {
 	url(../../font/DungGeunMo.ttf) format('truetype');
 }
 
-.RegisterPage {
+.AuthPage {
 	width: 100%;
 	min-width: 1500px;
 	height: 100vh;
@@ -56,66 +56,9 @@ html, body {
 				position: relative;
 				top: -96.5vh;
 				width: 550px;
-				height: 866px;
+				height: 840px;
 				margin: 0 auto;
 				z-index: 2;
-
-				.logo {
-					width: 550px;
-					height: 96px; 
-					margin-bottom: 10px;
-
-					.logo_img {
-						width: auto;
-						height: 96px;	
-						margin-left: 122px;
-					}
-				}
-
-				.input_boxes {
-					position: relative;
-					width: 550px;
-					height: 102px;
-					margin-top: 16px;
-					z-index: 3;
-
-					.input_boxes_text {
-						margin: 0;
-						font-family: DungGeunMo;
-						color: white;
-						font-size: 24px;
-					}
-
-					.input_boxes_input {
-						position: relative;
-						width: 550px;
-						height: 65px;
-						border: white;
-						border-radius: 5px;
-						font-family: DungGeunMo;
-						font-size: 25px;
-
-						margin-top: 10px;
-					}
-				}
-
-				.button_div {
-					width: 550px;
-					height: 65px;
-					margin-top: 115px;
-					z-index: 3;
-
-					.button_button {
-						width: 550px;
-						height: 65px;
-						border: white;
-						border-radius: 5px;
-						background-color: #59493F;
-						font-family: DungGeunMo;
-						color: white;
-						font-size: 36px;
-					}
-				}
 			}
 		}
 	}
