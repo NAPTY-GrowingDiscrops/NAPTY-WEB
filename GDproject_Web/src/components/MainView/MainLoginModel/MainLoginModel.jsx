@@ -30,6 +30,7 @@ const MainLogin = ({ setIsLogin }) => {
 					alert('ID나 비밀번호를 확인해주세요');
 					break;
 				default:
+					console.log(err);
 					alert('서버 오류');
 			}
 			return ;

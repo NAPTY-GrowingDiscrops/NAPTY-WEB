@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import MainPage from './pages/MainPage/MainPage';
 import SubPage from './pages/SubPage/SubPage'
-import Register from './pages/RegisterPage/RegisterPage';
+import Auth from './pages/AuthPage/AuthPage';
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Switch>
         <Route path='/' exact={true} component={MainPage} />
         <Route path='/subPage' component={SubPage} />
-        <Route path='/register' component={Register} />
+        <Route path='/auth' component={Auth} />
       </Switch>
     </BrowserRouter>
   );

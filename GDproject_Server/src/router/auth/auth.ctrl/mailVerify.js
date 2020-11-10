@@ -40,7 +40,7 @@ const mailVerify = async (req, res) => {
             from: 'mailverify1234@gmail.com',
             to: email,
             subject: 'Growing Discrops메일 인증을 해주세요!',
-            html: ' <center> <p>아래의 링크를 클릭하여 email인증을 해주세요!</p> <br/>' + "<a href='http://10.80.161.119:8080/auth/email/mailCheck/?tokenM=" + token + "'>인증하기</a> <br/>" + "<p>만약 자신이 요청한 것이 아니면</p> <a href='https://www.facebook.com/profile.php?id=100010144092898'>FaceBook</a>" + "<p>로 문의주세요</p>",
+            html: ' <center> <p>아래의 링크를 클릭하여 email인증을 해주세요!</p> <br/>' + "<a href='http://10.80.161.119:8000/auth/email/mailCheck/?tokenM=" + token + "'>인증하기</a> <br/>" + "<p>만약 자신이 요청한 것이 아니면</p> <a href='https://www.facebook.com/profile.php?id=100010144092898'>FaceBook</a>" + "<p>로 문의주세요</p>",
         };
 
         transporter.sendMail(mailOption, function(err, info) {
