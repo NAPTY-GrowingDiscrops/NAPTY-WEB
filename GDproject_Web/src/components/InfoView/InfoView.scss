@@ -26,10 +26,18 @@ body {
         background-color: dodgerblue;
 
         .mainLeftBox{
+            float: left;
             width: 355px;
             height: 817px;
 
             background-color: firebrick;
+        }
+        .mainRightBox{
+            float: left;
+            width: 1564px;
+            height: 817px;
+
+            background-color: goldenrod;
         }
     }
 }

@@ -6,6 +6,10 @@ const InfoView = () => {
         <div className="all">
             <div className="mainBox">
                 <div className="mainLeftBox">
+
+                </div>
+
+                <div className="mainRightBox">
                     
                 </div>
             </div>
