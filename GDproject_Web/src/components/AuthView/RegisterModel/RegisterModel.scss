@@ -21,6 +21,16 @@ html, body {
 
 .RegisterPage {
 
+	.logo {
+		width: 550px;
+		height: 96px;
+		background-color: aqua;
+		
+		.logo_img {
+			margin-left: 122px;
+		}
+	}
+
 	.input_boxes {
 		position: relative;
 		width: 550px;

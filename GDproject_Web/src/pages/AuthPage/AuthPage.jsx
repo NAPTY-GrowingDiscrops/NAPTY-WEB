@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 
+import LoginModel from '../../components/AuthView/LoginModel/LoginModel';
 import RegisterModel from	'../../components/AuthView/RegisterModel/RegisterModel';
 import { getToken } from '../../lib/token';
 
@@ -28,7 +29,6 @@ const AuthPage = () => {
 					<div>
 						<div className='register_back'></div>
 						<div className='register_front'>
-
 							<div className='register_box'>
 								<RegisterModel setIsRegister={setIsRegister} />
 							</div>
@@ -37,9 +37,8 @@ const AuthPage = () => {
 					: <div>
 						<div className='login_back'></div>
 						<div className='login_front'>
-
 							<div className='login_box'>
-								
+								<LoginModel setIsRegister={setIsRegister} />
 							</div>
 						</div>
 					</div>

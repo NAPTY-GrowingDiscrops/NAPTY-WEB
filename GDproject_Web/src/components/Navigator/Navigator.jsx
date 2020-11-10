@@ -13,6 +13,7 @@ const ViewTop = () => {
 				        <img className='logo' src={logoPNG} alt="Logo" />
 			        </div>
 
+<<<<<<< Updated upstream
                     <div className="menu">
                         <div className="menuTop">
                             <div className="menuContent">
@@ -30,6 +31,11 @@ const ViewTop = () => {
                         <div className="menuBottom">
                             <p className="gameStart">게임시작</p>
                         </div>
+=======
+              <div className="menu">
+                <div className="menuTop">
+                  <div className="menuContent">
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>

@@ -5,7 +5,6 @@ const Op = sequelie.Op;
 const getPosts = async (req, res) => {
     keyword = req.query.keyword
     try {
-
         let posts = [];
 
         if(keyword) {
@@ -61,7 +60,6 @@ const getPosts = async (req, res) => {
             message: "게시글 목록 불러오기 성공!",
             posts,
         });
-
     } catch ( err ) {
         console.log(err);
         return res.status(500).json({
