@@ -16,6 +16,14 @@ const ViewTop = () => {
                         <div className="menu">
                             <div className="menuTop">
                                 <div className="menuContent">
+                                    <div className="menuContents">게임정보</div>
+                                    <div className="menuContents">게시판</div>
+                                    <div className="menuContents">고객센터</div>
+                                    <button className="logout">로그아웃</button>
+                                    <div className="info">
+                                        <p className="name">박상아<span className="sla">님</span></p>
+                                        <div className="profile"></div>
+                                    </div>
                                 </div>
                             </div>
 
