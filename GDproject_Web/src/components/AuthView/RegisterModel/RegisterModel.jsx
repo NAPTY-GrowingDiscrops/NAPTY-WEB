@@ -90,6 +90,19 @@ const RegisterPage = () => {
 		}
 	}
 
+	const pwRecheck = async () => {
+		if (pwCheck) {
+			if (pw === pwCheck) {
+				setCheckPwCheck(true);
+			} else {
+				alert('입력된 비밀번호가 다릅니다.');
+				setCheckPwCheck(false);
+			}
+		} else {
+			setCheckPwCheck(false);
+		}
+	}
+
 	const emailCheck = async () => {
 		if (email) {
 			try {
@@ -114,8 +127,41 @@ const RegisterPage = () => {
 	}
 
 	const register = async () => {
- 
-		alert('회원가입 버튼!!!!!');
+		if (!CheckName) {
+			alert('이름을 다시 확인해주세요.');
+			return ;
+		}
+		if (!CheckId) {
+			alert('ID를 다시 확인해주세요.');
+			return;
+		}
+		if (!CheckPw) {
+			alert('비밀번호를 다시 확인해주세요.');
+			return;
+		}
+		if (!CheckPwCheck) {
+			alert('비밀번호확인 항목을 다시 확인해주세요.');
+			return;
+		}
+		if (!CheckEmail) {
+			alert('email을 다시 확인해주세요.');
+			return;
+		}
+		try {
+			await axios.post(`${SERVER}/auth/register/`, {
+				id, pwCheck, name, email
+			});
+			alert('회원가입 성공!');
+		} catch (err) {
+			switch (err.response.status) {
+				case 401:
+					alert('하나라도 입력되지 않은 항목이 있습니다.');
+					break;
+				default:
+					console.log(err);
+					alert('서버 오류');
+			}
+		}
 	}
 
 	return (
@@ -128,21 +174,25 @@ const RegisterPage = () => {
 				<p className='input_boxes_text'>이름</p>
 				<input className='input_boxes_input' style={CheckName ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
 			</div>
+
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>아이디</p>
 				<input className='input_boxes_input' style={CheckId ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={id} onChange={e => setId(e.target.value)} onBlur={e => idCheck()} />
 			</div>
+
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>비밀번호</p>
 				<input className='input_boxes_input' style={CheckPw ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={pw} onChange={e => setPw(e.target.value)} onBlur={e => pwNormalization()} />
 			</div>
+
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>비밀번호 확인</p>
-				<input className='input_boxes_input' type="text" value={pwCheck} onChange={e => setPwCheck(e.target.value)}  />
+				<input className='input_boxes_input' style={CheckPwCheck ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={pwCheck} onChange={e => setPwCheck(e.target.value)} onBlur={e => pwRecheck()} />	
 			</div>
+
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>이메일</p>
-				<input className='input_boxes_input' style={CheckEmail ? {border: '3px solid green'} : {border: '3px solid red'}} type="email" value={email} onChange={e => setEmail(e.target.value)} onBlur={e => emailCheck()} />				
+				<input className='input_boxes_input' style={CheckEmail ? {border: '3px solid green'} : {border: '3px solid red'}} type="email" value={email} onChange={e => setEmail(e.target.value)} onBlur={e => emailCheck()} />		
 			</div>
 
 			<div className='button_div'>
