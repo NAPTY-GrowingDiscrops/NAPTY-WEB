@@ -6,6 +6,7 @@ const register = require('./auth.ctrl/register');
 const mailDupCheck = require('./auth.ctrl/mailDupCheck');
 const nameCheck = require('./auth.ctrl/nameCheck');
 const idCheck = require('./auth.ctrl/idCheck');
+const pwNormalization = require('./auth.ctrl/pwNormalization');
 const mailVerify = require('./auth.ctrl/mailVerify');
 const mailCheck = require('./auth.ctrl/mailCheck');
 
@@ -16,6 +17,7 @@ router.post('/register', register);
 router.post('/register/mailCheck', mailDupCheck);
 router.post('/register/nameCheck', nameCheck);
 router.post('/register/idCheck', idCheck);
+router.post('/register/pwNormalization', pwNormalization);
 
 router.post('/email/mailVerify', mailVerify);
 router.get('/email/mailCheck', mailCheck);

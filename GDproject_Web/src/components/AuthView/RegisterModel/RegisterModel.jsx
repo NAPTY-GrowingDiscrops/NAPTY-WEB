@@ -13,7 +13,9 @@ const RegisterPage = () => {
 	const [id, setId] = useState('');
 	const [CheckId, setCheckId] = useState(false);
 	const [pw, setPw] = useState('');
-	const [checkPw, setCheckPw] = useState('');
+	const [CheckPw, setCheckPw] = useState(false);
+	const [pwCheck, setPwCheck] = useState('');
+	const [CheckPwCheck, setCheckPwCheck] = useState(false);
 	const [email, setEmail] = useState('');
 	const [CheckEmail, setCheckEmail] = useState(false)
 
@@ -40,38 +42,11 @@ const RegisterPage = () => {
 		}
 	}
 	
-const idCheck = async () => {
-	if (id) {
-		try {
-			await axios.post(`${SERVER}/auth/register/idCheck`, {
-				id
-			});
-			setCheckId(true);
-		} catch (err) {
-			switch (err.response.status) {
-				case 401:
-					alert('이미 있는 아이디입니다');
-					break;
-				default:
-					console.log(err);
-					alert('서버 오류');
-			}
-			setCheckId(false);
-		}
-	} else {
-		setCheckId(false);
-	}
-}
-
-	const pwCheck = (pw) => {
-		alert(pw);
-	}
-
-	const emailCheck = () => {
-		if (email) {
+	const idCheck = async () => {
+		if (id) {
 			try {
 				await axios.post(`${SERVER}/auth/register/idCheck`, {
-					email
+					id
 				});
 				setCheckId(true);
 			} catch (err) {
@@ -82,7 +57,7 @@ const idCheck = async () => {
 					default:
 						console.log(err);
 						alert('서버 오류');
-					}
+				}
 				setCheckId(false);
 			}
 		} else {
@@ -90,8 +65,56 @@ const idCheck = async () => {
 		}
 	}
 
-	const register = async () => {
+	const pwNormalization = async () => {
+		if (pw) {
+			try {
+				await axios.post(`${SERVER}/auth/register/pwNormalization`, {
+					pw
+				});
+				setCheckPw(true);
+			} catch (err) {
+				switch (err.response.status) {
+					case 401:
+						break;
+					case 403:
+						alert('영문자, 숫자, 특수문자(#?!@$%^&*-)를 하나 이상 사용하여 8자리 이상 입력해주세요');
+						break;
+					default:
+						console.log(err);
+						alert('서버 오류');
+				}
+				setCheckPw(false);
+			}
+		} else {
+			setCheckPw(false);
+		}
+	}
 
+	const emailCheck = async () => {
+		if (email) {
+			try {
+				await axios.post(`${SERVER}/auth/register/mailCheck`, {
+					email
+				});
+				setCheckEmail(true);
+			} catch (err) {
+				switch (err.response.status) {
+					case 401:
+						alert('이미 있는 이메일입니다');
+						break;
+					default:
+						console.log(err);
+						alert('서버 오류');
+				}
+				setCheckEmail(false);
+			}
+		} else {
+			setCheckEmail(false);
+		}
+	}
+
+	const register = async () => {
+ 
 		alert('회원가입 버튼!!!!!');
 	}
 
@@ -111,15 +134,15 @@ const idCheck = async () => {
 			</div>
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>비밀번호</p>
-				<input className='input_boxes_input' type="text" value={pw} onChange={e => setPw(e.target.value)}/>
+				<input className='input_boxes_input' style={CheckPw ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={pw} onChange={e => setPw(e.target.value)} onBlur={e => pwNormalization()} />
 			</div>
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>비밀번호 확인</p>
-				<input className='input_boxes_input' type="text" value={checkPw} onChange={e => setCheckPw(e.target.value)}/>
+				<input className='input_boxes_input' type="text" value={pwCheck} onChange={e => setPwCheck(e.target.value)}  />
 			</div>
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>이메일</p>
-				<input className='input_boxes_input' type="text" value={email} onChange={e => setEmail(e.target.value)} />				
+				<input className='input_boxes_input' style={CheckEmail ? {border: '3px solid green'} : {border: '3px solid red'}} type="email" value={email} onChange={e => setEmail(e.target.value)} onBlur={e => emailCheck()} />				
 			</div>
 
 			<div className='button_div'>
