@@ -1,23 +1,66 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-import logo from '../logo_white.png' 
+import SERVER from '../../../store/config';
+import logo from '../logo_white.png';
+
 import './RegisterModel.scss';
 
 const RegisterPage = () => {
 
 	const [name, setName] = useState('');
+	const [CheckName, setCheckName] = useState(false);
 	const [id, setId] = useState('');
+	const [CheckId, setCheckId] = useState(false);
 	const [pw, setPw] = useState('');
 	const [checkPw, setCheckPw] = useState('');
 	const [email, setEmail] = useState('');
 
-	const nameCheck = () => {
-		alert(name);
+	const nameCheck = async () => {
+		if (name) {
+			try {
+				await axios.post(`${SERVER}/auth/register/nameCheck`, {
+					name
+				});
+				setCheckName(true);
+			} catch (err) {
+				switch (err.response.status) {
+					case 401:
+						alert('이미 있는 닉네임입니다');
+						break;
+					default:
+						console.log(err);
+						alert('서버 오류');
+				}
+				setCheckName(false);
+			}
+		} else {
+			setCheckName(false);
+		}
 	}
 	
-	const idCheck = (id) => {
-		alert(id);
+const idCheck = async () => {
+	if (id) {
+		try {
+			await axios.post(`${SERVER}/auth/register/idCheck`, {
+				id
+			});
+			setCheckId(true);
+		} catch (err) {
+			switch (err.response.status) {
+				case 401:
+					alert('이미 있는 아이디입니다');
+					break;
+				default:
+					console.log(err);
+					alert('서버 오류');
+			}
+			setCheckId(false);
+		}
+	} else {
+		setCheckId(false);
 	}
+}
 
 	const pwCheck = (pw) => {
 		alert(pw);
@@ -40,11 +83,11 @@ const RegisterPage = () => {
 
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>이름</p>
-				<input className='input_boxes_input' type="text" value={name} onChange={e => setName(e.target.value)}/>
+				<input className='input_boxes_input' style={CheckName ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
 			</div>
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>아이디</p>
-				<input className='input_boxes_input' type="text" value={id} onChange={e => setId(e.target.value)} />
+				<input className='input_boxes_input' style={CheckId ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={id} onChange={e => setId(e.target.value)} onBlur={e => idCheck()} />
 			</div>
 			<div className='input_boxes'>
 				<p className='input_boxes_text'>비밀번호</p>
