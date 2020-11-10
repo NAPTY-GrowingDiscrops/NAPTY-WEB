@@ -15,6 +15,7 @@ const RegisterPage = () => {
 	const [pw, setPw] = useState('');
 	const [checkPw, setCheckPw] = useState('');
 	const [email, setEmail] = useState('');
+	const [CheckEmail, setCheckEmail] = useState(false)
 
 	const nameCheck = async () => {
 		if (name) {
@@ -66,8 +67,27 @@ const idCheck = async () => {
 		alert(pw);
 	}
 
-	const emailCheck = (email) => {
-		alert(email);
+	const emailCheck = () => {
+		if (email) {
+			try {
+				await axios.post(`${SERVER}/auth/register/idCheck`, {
+					email
+				});
+				setCheckId(true);
+			} catch (err) {
+				switch (err.response.status) {
+					case 401:
+						alert('이미 있는 아이디입니다');
+						break;
+					default:
+						console.log(err);
+						alert('서버 오류');
+					}
+				setCheckId(false);
+			}
+		} else {
+			setCheckId(false);
+		}
 	}
 
 	const register = async () => {
