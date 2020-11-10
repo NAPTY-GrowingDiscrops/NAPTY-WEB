@@ -9,6 +9,7 @@ import './AuthPage.scss';
 const AuthPage = () => {
 
 	const [isLogin, setIsLogin] = useState(false);
+	const [isRegister, setIsRegister] = useState(false);
 
 	useEffect(() => {
 		if (getToken()) {
@@ -23,12 +24,26 @@ const AuthPage = () => {
 		:	
 		<div className='AuthPage'>
 			<div className='register'>
-				<div className='register_back'></div>
-				<div className='register_front'>
-					<div className='register_box'>
-						<RegisterModel />
+				{ isRegister ?
+					<div>
+						<div className='register_back'></div>
+						<div className='register_front'>
+
+							<div className='register_box'>
+								<RegisterModel setIsRegister={setIsRegister} />
+							</div>
+						</div>
 					</div>
-				</div>
+					: <div>
+						<div className='login_back'></div>
+						<div className='login_front'>
+
+							<div className='login_box'>
+								
+							</div>
+						</div>
+					</div>
+				}
 			</div>
 		</div>
 	)

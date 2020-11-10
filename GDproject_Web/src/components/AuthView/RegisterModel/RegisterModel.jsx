@@ -113,7 +113,7 @@ const RegisterPage = () => {
 			} catch (err) {
 				switch (err.response.status) {
 					case 401:
-						alert('이미 있는 이메일입니다');
+						alert('이미 사용중인 이메일입니다');
 						break;
 					default:
 						console.log(err);
@@ -149,9 +149,12 @@ const RegisterPage = () => {
 		}
 		try {
 			await axios.post(`${SERVER}/auth/register/`, {
-				id, pwCheck, name, email
+				id, pw, name, email
 			});
-			alert('회원가입 성공!');
+			alert('회원가입 성공! 가입할 때 사용한 메일로 인증해주세요');
+			await axios.post(`${SERVER}/auth/email/mailVerify`, {
+				email,
+			});
 		} catch (err) {
 			switch (err.response.status) {
 				case 401:
