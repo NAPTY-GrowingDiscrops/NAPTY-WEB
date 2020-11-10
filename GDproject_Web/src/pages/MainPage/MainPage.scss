@@ -87,7 +87,7 @@ body {
 				.gameStart{
 					position: relative;
 					top: -106.5px;
-					width: 247px;
+					width: 281px;
 					height: 106px;
 					border-right: 70px solid transparent;
 					border-bottom: 105px solid #59493F;
@@ -108,7 +108,8 @@ body {
 				padding-left: 281px;
 
 				.menuContent{
-					width: 670px;
+					float: right;
+					width: 635px;
 					height: 106px;
 					border-left: 70px solid transparent;
 					border-top: 105px solid #7E6B5A;
