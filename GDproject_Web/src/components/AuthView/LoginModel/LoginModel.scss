@@ -33,7 +33,6 @@
 		height: 249px;
 		margin-top: 159px;
 		z-index: 3;
-		background-color: brown;
 
 		.input_boxes_text {
 			margin: 0;
@@ -53,6 +52,18 @@
 
 			margin-top: 10px;
 		}
+
+		.boxes_ment {
+			width: 550px;
+			height: 25px;
+			margin-top: 7.7px;
+
+			.menu_text {
+				font-family: DungGeunMo;
+				font-size: 24px;
+				color: white;
+			}
+		}
 	}	
 
 	.login_button_div {
@@ -65,7 +76,7 @@
 			height: 65px;
 			border: white;
 			border-radius: 5px;
-			background-color: #59493F;
+			background-color: #7E6B5A;
 			font-family: DungGeunMo;
 			color: white;
 			font-size: 36px;

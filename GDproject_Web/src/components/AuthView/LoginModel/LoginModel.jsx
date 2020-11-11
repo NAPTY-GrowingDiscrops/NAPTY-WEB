@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Redirect, BrowserRouter as Router, Link } from 'react-router-dom';
+
 
 import SERVER from '../../../store/config';
 import logo from '../logo_white.png'
@@ -7,7 +9,7 @@ import { setToken } from '../../../lib/token';
 
 import './LoginModel.scss'
 
-const LoginModel = ({ setIsLogin }) => {
+const LoginModel = ({ setIsLogin, setIsRegister }) => {
 
   const [id, setId] = useState('');
   const [pw, setPw] = useState(''); 
@@ -67,32 +69,43 @@ const LoginModel = ({ setIsLogin }) => {
 		token = {};
 		setId('');
 		setPw('');
-		setIsLogin(true);
+    setIsLogin(true);
+    
   }
 
   return (
-    <div className='LoginPage'>
-      <div className='logo'>
-        <img className='logo_img' src={logo} alt='logo_white' /> 
+    <Router>
+      <div className='LoginPage'>
+        <div className='logo'>
+          <img className='logo_img' src={logo} alt='logo_white' /> 
+        </div>
+
+        <div className='input_boxes'>
+        
+          <p className='input_boxes_text'>아이디</p>
+          <input className='input_boxes_input' type='text' value={id} onChange={e => setId(e.target.value)} />
+
+          <p className='input_boxes_text' style={{ marginTop: '16px' }}>비밀번호</p>
+          <input className='input_boxes_input' type='text' value={pw} onChange={e => setPw(e.target.value)} />
+
+          <div className='boxes_ment'>
+            <Link to='' className='menu_text' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>아이디 찾기</Link>
+            <span className='menu_text'> | </span>
+            <Link to='' className='menu_text' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>비밀번호 찾기</Link>
+            <span className='menu_text'> | </span>
+            <Link to='/auth' className='menu_text' onClick={() => {setIsRegister(true)}}>회원가입</Link>
+          </div>
+
+        </div>
+
+        <div className='login_button_div'>
+          <button className='button_button' onClick={e => login()}>
+            로그인
+          </button>
+        </div>
+
       </div>
-
-      <div className='input_boxes'>
-       
-        <p className='input_boxes_text'>이름</p>
-        <input className='input_boxes_input' type='text' value={id} onChange={e => setId(e.target.value)} />
-
-        <p className='input_boxes_text' style={{ marginTop: '16px' }}>비밀번호</p>
-        <input className='input_boxes_input' type='text' value={pw} onChange={e => setPw(e.target.value)} />
-
-      </div>
-
-      <div className='login_button_div'>
-        <button className='button_button' onClick={e => login()}>
-          로그인
-        </button>
-      </div>
-
-    </div>
+    </Router>
   )
 }
 
