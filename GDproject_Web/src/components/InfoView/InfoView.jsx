@@ -8,9 +8,9 @@ const InfoView = () => {
                 <div className="mainLeftBox">
                     <div className="leftTitle">
                         <div className="leftContent textFocus">게임 세계관</div>
-                        <div className="leftContent textUnfocus">게임 조작법</div>
-                        <div className="leftContent textUnfocus">병작물 도감</div>
-                        <div className="leftContent textUnfocus">개발자 소개</div>
+                        <div className="leftContent">게임 조작법</div>
+                        <div className="leftContent">병작물 도감</div>
+                        <div className="leftContent">개발자 소개</div>
                     </div>
                 </div>
 
