@@ -10,7 +10,16 @@ const InfoView = () => {
                 </div>
 
                 <div className="mainRightBox">
-                    
+                    <div className="menuTop">
+                        <div className="menuTopBox"></div>
+                        <div className="menuTopBox"></div>
+                        <div className="menuTopBox"></div>
+                        <div className="menuTopBox"></div>
+                    </div>
+
+                    <div className="menuContent">
+
+                    </div>
                 </div>
             </div>
         </div>
