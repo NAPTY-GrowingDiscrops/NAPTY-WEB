@@ -74,13 +74,15 @@ body {
     }
 
     .boxes_ment {
+        float: left;
 		width: 550px;
 		height: 25px;
-		margin-top: 7.7px;
+		margin-left: 40px;
 
 		.menu_text {
 			font-family: DungGeunMo;
-			font-size: 24px;
+            font-size: 16px;
+            text-decoration: none;
 			color: white;
 		}
     }
