@@ -1,40 +1,70 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { removeToken, getToken } from '../../lib/token';
+import { decoded } from '../../lib/decoded';
 
 import './Navigator.scss';
 import logoPNG from '../../pages/MainPage/logo.png';
 
 const ViewTop = () => {
-    return (
-		<div className="all">
-			<div className="topBox">
-                <div className="top">
-                    <div className="logoBox">
-				        <img className='logo' src={logoPNG} alt="Logo" />
-			        </div>
 
-                    <div className="menu">
-                        <div className="menuTop">
-                            <div className="menuContent">
-                                <a href='' className="menuContents">게임정보</a>
-                                <a href='' className="menuContents">게시판</a>
-                                <a href='' className="menuContents">고객센터</a>
-                                <button className="logout">로그아웃</button>
-                                <div className="info">
-                                    <p className="name">박상아<span className="sla">님</span></p>
-                                    <div className="profile"></div>
-                                </div>
-                            </div>
-                        </div>
+	const [isLogin, setIsLogin] = useState(false);
+	const [name, setName] = useState(false);
 
-                        <div className="menuBottom">
-                            <p className="gameStart">게임시작</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+	const logout = () => {
+		setIsLogin(false);
+		removeToken();
+		alert('로그아웃 완료');
+	}
+
+	useEffect(() => {
+		const token = getToken();
+		if (token) {
+			setIsLogin(true);
+			const name = decoded(token);
+			setName(name.name);
+		} else {
+			setIsLogin(false);
+		}
+	}, []);
+
+		return (
+			<Router>
+				<div className="all">
+					<div className="topBox">
+						<div className="top">
+							<div className="logoBox">
+								<img className='logo' src={logoPNG} alt="Logo" />
+							</div>
+
+							<div className="menu">
+								<div className="menuTop">
+									<div className="menuContent">
+										<Link to='' className='menuContents' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게임정보</Link>
+										<Link to='' className='menuContents' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게시판</Link>
+										<Link to='' className='menuContents' style={{ marginRight: '0px'}} onClick={() => {alert('아직 구현이 안되어 있어요!')}}>고객센터</Link>
+										{ isLogin ?
+											<div>
+												<button className="logout" onClick={() => {logout()}}>로그아웃</button>
+												<div className="info">
+													<p className="name">{name}<span className="sla">님</span></p>
+													<div className="profile"></div>
+												</div>
+											</div>
+											: <button className="logout" onClick={() => {window.location.href='/auth'}}>로그인</button>
+										}
+									</div>
+								</div>
+
+								<div className="menuBottom">
+									<p className="gameStart">게임시작</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</Router>
+	)
 }
 
 export default ViewTop;
