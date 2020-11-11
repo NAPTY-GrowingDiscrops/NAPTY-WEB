@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import SERVER from '../../../store/config';
 import { setToken } from '../../../lib/token';
@@ -10,10 +10,9 @@ import './MainLoginModel.scss';
 
 const MainLogin = ({ setIsLogin }) => {
 
-	const [isRegister, setIsRegister] = useState(false);
-
 	const [id, setId] = useState('');
 	const [pw, setPw] = useState('');
+	const [isRegister, SetIsregister] = useState(true);
 	let token = {};
 
 	const login = async () => { 

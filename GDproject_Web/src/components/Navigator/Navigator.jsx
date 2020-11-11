@@ -34,7 +34,7 @@ const ViewTop = () => {
 					<div className="topBox">
 						<div className="top">
 							<div className="logoBox">
-								<img className='logo' src={logoPNG} alt="Logo" />
+								<Link to='' onClick={() => {window.location.href='/'}}><img className='logo' src={logoPNG} alt="Logo"  /></Link>
 							</div>
 
 							<div className="menu">

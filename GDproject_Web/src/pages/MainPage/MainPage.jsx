@@ -14,11 +14,12 @@ import download from './Img/download.png';
 
 import './MainPage.scss';
 
-const MainPage = () => {
+const MainPage = ({ isRegister, setIsRegister }) => {
 
 	const [IsLogin, setIsLogin] = useState(false);
 
 	useEffect(() => {
+		console.log(isRegister, '123');
 		if (getToken()) {
 			setIsLogin(true);
 		}
@@ -31,7 +32,7 @@ const MainPage = () => {
 				<div className="mainTop">
 					<div className="mainBackground">
 						<div className="mainContent">
-							<img className='logo' src={logoPNG} alt="Logo" />
+							<Link to='' onClick={() => {window.location.href='/'}}><img className='logo' src={logoPNG} alt="Logo"  /></Link>
 						</div>					
 						<img className='main_image' src={img1} alt='mainImg1' />
 
