@@ -7,17 +7,21 @@ import { getToken } from '../../lib/token';
 
 import './AuthPage.scss';
 
-const AuthPage = () => {
+const AuthPage = ({ match }) => {
 
 	const [isLogin, setIsLogin] = useState(false);
 	const [isRegister, setIsRegister] = useState(false);
 
 	useEffect(() => {
+		const bool = match.params.bool;
 		if (getToken()) {
 			setIsLogin(true);
 			console.log('이미 로그인 했습니다');
 		}
-	}, []);
+		if (bool === '1') {
+			setIsRegister(true);
+		}
+	}, [match]);
 
 	return (
 		isLogin ?

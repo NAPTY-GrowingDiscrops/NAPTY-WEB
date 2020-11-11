@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import SERVER from '../../../store/config';
@@ -168,42 +169,44 @@ const RegisterPage = () => {
 	}
 
 	return (
-		<div className='RegisterPage'>
-			<div className='logo'>
-				<img className='logo_img' src={logo} alt='logo_white' /> 
-			</div>
+		<Router>
+			<div className='RegisterPage'>
+				<div className='logo'>
+					<Link to='' onClick={() => {window.location.href='/'}}><img className='logo_img' src={logo} alt="Logo" /></Link>
+				</div>
 
-			<div className='input_boxes'>
-				<p className='input_boxes_text'>이름</p>
-				<input className='input_boxes_input' style={CheckName ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
-			</div>
+				<div className='input_boxes'>
+					<p className='input_boxes_text'>이름</p>
+					<input className='input_boxes_input' style={CheckName ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
+				</div>
 
-			<div className='input_boxes'>
-				<p className='input_boxes_text'>아이디</p>
-				<input className='input_boxes_input' style={CheckId ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={id} onChange={e => setId(e.target.value)} onBlur={e => idCheck()} />
-			</div>
+				<div className='input_boxes'>
+					<p className='input_boxes_text'>아이디</p>
+					<input className='input_boxes_input' style={CheckId ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={id} onChange={e => setId(e.target.value)} onBlur={e => idCheck()} />
+				</div>
 
-			<div className='input_boxes'>
-				<p className='input_boxes_text'>비밀번호</p>
-				<input className='input_boxes_input' style={CheckPw ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={pw} onChange={e => setPw(e.target.value)} onBlur={e => pwNormalization()} />
-			</div>
+				<div className='input_boxes'>
+					<p className='input_boxes_text'>비밀번호</p>
+					<input className='input_boxes_input' style={CheckPw ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={pw} onChange={e => setPw(e.target.value)} onBlur={e => pwNormalization()} />
+				</div>
 
-			<div className='input_boxes'>
-				<p className='input_boxes_text'>비밀번호 확인</p>
-				<input className='input_boxes_input' style={CheckPwCheck ? {border: '3px solid green'} : {border: '3px solid red'}} type="text" value={pwCheck} onChange={e => setPwCheck(e.target.value)} onBlur={e => pwRecheck()} />	
-			</div>
+				<div className='input_boxes'>
+					<p className='input_boxes_text'>비밀번호 확인</p>
+					<input className='input_boxes_input' style={CheckPwCheck ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={pwCheck} onChange={e => setPwCheck(e.target.value)} onBlur={e => pwRecheck()} />	
+				</div>
 
-			<div className='input_boxes'>
-				<p className='input_boxes_text'>이메일</p>
-				<input className='input_boxes_input' style={CheckEmail ? {border: '3px solid green'} : {border: '3px solid red'}} type="email" value={email} onChange={e => setEmail(e.target.value)} onBlur={e => emailCheck()} />		
-			</div>
+				<div className='input_boxes'>
+					<p className='input_boxes_text'>이메일</p>
+					<input className='input_boxes_input' style={CheckEmail ? {border: '2px solid green'} : {border: '2px solid red'}} type="email" value={email} onChange={e => setEmail(e.target.value)} onBlur={e => emailCheck()} />		
+				</div>
 
-			<div className='button_div'>
-				<button className='button_button' onClick={e => register()}>
-					회원가입
-				</button>
+				<div className='button_div'>
+					<button className='button_button' onClick={e => register()}>
+						회원가입
+					</button>
+				</div>
 			</div>
-	</div>
+		</Router>
 	)
 }
 

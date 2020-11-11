@@ -12,7 +12,6 @@ const MainLogin = ({ setIsLogin }) => {
 
 	const [id, setId] = useState('');
 	const [pw, setPw] = useState('');
-	const [isRegister, SetIsregister] = useState(true);
 	let token = {};
 
 	const login = async () => { 
@@ -77,7 +76,7 @@ const MainLogin = ({ setIsLogin }) => {
 				<span className='menu_text'> | </span>
 				<Link to='' className='menu_text' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>비밀번호 찾기</Link>
 				<span className='menu_text'> | </span>
-				<Link to='/auth'  className='menu_text' onClick={() => {window.location.href='/auth'}}>회원가입</Link>
+				<Link to='/auth'  className='menu_text' onClick={() => {window.location.href='/auth/1'}}>회원가입</Link>
         	</div>
 		</div>
 	);

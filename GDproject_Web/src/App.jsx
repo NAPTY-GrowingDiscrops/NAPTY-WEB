@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import * as uuid from 'uuid';
 
 import MainPage from './pages/MainPage/MainPage';
 import SubPage from './pages/SubPage/SubPage'
@@ -14,7 +15,8 @@ const App = () => {
       <Switch>
         <Route path='/' exact={true} component={MainPage} isRegister={isRegister} setIsRegister={setIsRegister} />
         <Route path='/subPage' component={SubPage} />
-        <Route path='/auth' component={Auth} />
+        <Route path='/auth/:bool' component={Auth} />
+        <Redirect from='/auth' to={`/auth/${uuid.v4()}`} />
       </Switch>
     </BrowserRouter>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import * as uuid from 'uuid';
 import { removeToken, getToken } from '../../lib/token';
 import { decoded } from '../../lib/decoded';
 
@@ -51,7 +52,7 @@ const ViewTop = () => {
 													<div className="profile"></div>
 												</div>
 											</div>
-											: <button className="logout" onClick={() => {window.location.href='/auth'}}>로그인</button>
+											: <button className="logout" onClick={() => {window.location.href=`/auth/${uuid.v4()}`}}>로그인</button>
 										}
 									</div>
 								</div>

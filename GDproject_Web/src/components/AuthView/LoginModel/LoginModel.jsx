@@ -77,7 +77,7 @@ const LoginModel = ({ setIsLogin, setIsRegister }) => {
     <Router>
       <div className='LoginPage'>
         <div className='logo'>
-          <img className='logo_img' src={logo} alt='logo_white' /> 
+          <Link to='' onClick={() => {window.location.href='/'}}><img className='logo_img' src={logo} alt="Logo" /></Link> 
         </div>
 
         <div className='input_boxes'>
