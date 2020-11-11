@@ -30,7 +30,7 @@ const AuthPage = () => {
 						<div className='register_back'></div>
 						<div className='register_front'>
 							<div className='register_box'>
-								<RegisterModel setIsRegister={setIsRegister} />
+								<RegisterModel setIsLogin={setIsLogin} />
 							</div>
 						</div>
 					</div>
