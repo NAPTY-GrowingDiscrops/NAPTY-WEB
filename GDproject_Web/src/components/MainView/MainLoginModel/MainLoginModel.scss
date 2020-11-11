@@ -64,12 +64,25 @@ body {
 
             border: none;
             border-radius: 10px;
-        }
-        .loginMent{
-            color: white;
-            font-family: DungGeunMo;
+        
+
+            .loginMent{
+                color: white;
+                font-family: DungGeunMo;
+            }
         }
     }
 
+    .boxes_ment {
+		width: 550px;
+		height: 25px;
+		margin-top: 7.7px;
 
+		.menu_text {
+			font-family: DungGeunMo;
+			font-size: 24px;
+			color: white;
+		}
+    }
+    
 }

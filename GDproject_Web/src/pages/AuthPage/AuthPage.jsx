@@ -7,10 +7,9 @@ import { getToken } from '../../lib/token';
 
 import './AuthPage.scss';
 
-const AuthPage = () => {
+const AuthPage = ({ isRegister, setIsRegister}) => {
 
 	const [isLogin, setIsLogin] = useState(false);
-	const [isRegister, setIsRegister] = useState(false);
 
 	useEffect(() => {
 		if (getToken()) {
