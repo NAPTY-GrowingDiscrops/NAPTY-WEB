@@ -5,7 +5,7 @@ import './ControlView.scss';
 const ControlView = () => {
 	return (
 		<div>
-			qwe
+			대충 조작법들
 		</div>
 	)
 }

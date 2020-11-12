@@ -5,7 +5,7 @@ import './IntroduceView.scss';
 const IntroduceView = () => {
 	return (
 		<div>
-			abc
+			대충 개발자 설명
 		</div>
 	)
 }

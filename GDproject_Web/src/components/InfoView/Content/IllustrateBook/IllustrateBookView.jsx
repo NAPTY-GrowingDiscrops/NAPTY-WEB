@@ -5,7 +5,7 @@ import './IllustrateBookView.scss';
 const IllustrateBookView = () => {
 	return (
 		<div>
-			zxc
+			대충 도감
 		</div>
 	)
 }

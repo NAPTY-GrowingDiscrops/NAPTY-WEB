@@ -5,7 +5,7 @@ import './WorldView.scss';
 const WorldView = () => {
   return (
     <div>
-      123
+      대충 세계관 설명
     </div>
   )
 }
