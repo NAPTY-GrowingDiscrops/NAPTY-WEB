@@ -182,7 +182,7 @@ const RegisterPage = () => {
 					<div className='input_boxes_inputForm' style={CheckName ? {border: '2px solid green'} : {border: '2px solid red'}} >
 						<input className='input_boxes_input' type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
 						<div className='check_logo'>
-							<embed className={CheckName ? 'input_Check_logo' : 'input_X_logo'} src={CheckName?x:check} alt='X.svg' />
+              <img className={CheckName?'input_Check_logo':'input_X_logo'} src={CheckName?check:x} alt='/' />
 						</div>
 					</div>
 				</div>

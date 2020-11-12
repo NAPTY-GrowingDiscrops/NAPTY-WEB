@@ -17,11 +17,11 @@ body{
     url(../../font/DungGeunMo.ttf) format('truetype');
 }
 .all{
-    position: relative;
-    width: 100%;
-	min-width: 1600px;
-}
-.topBox{
+  position: relative;
+  width: 100%;
+  min-width: 1900px;
+  
+  .topBox{
     float: left;
     width: 100%;
     height: 263px;
@@ -35,7 +35,6 @@ body{
         .logoBox{
             position: relative;
             width: 1549px;
-            margin: auto;
             z-index: 2;
             margin-right: 350px;
 
@@ -130,4 +129,5 @@ body{
             }
         }
     }
+}
 }

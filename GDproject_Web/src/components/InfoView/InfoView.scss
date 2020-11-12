@@ -1,87 +1,93 @@
 body {
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
 }
 
 @font-face {
-    font-family: DungGeunMo;
-    font-style: normal;
-    font-style: normal;
-    font-weight: normal;
+	font-family: DungGeunMo;
+	font-style: normal;
+	font-style: normal;
+	font-weight: normal;
 
-    src: local('DungGeunMo'), 
-    url(../../font/DungGeunMo.ttf) format('truetype');
+	src: local('DungGeunMo'), 
+	url(../../font/DungGeunMo.ttf) format('truetype');
 }
 .all{
-    position: relative;
-    width: 100%;
-    min-width: 1800px;
+	position: relative;
+	width: 100%;
+	min-width: 1900px;
 
-    .mainBox{
-        float: left;
-        width: 100%;
-        height: 817px;
+.mainBox{
+	float: left;
+	width: 100%;
+	height: 817px;
 
-        .mainLeftBox{
-            float: left;
-            width: 355px;
-            height: 817px;
-            background-color: #7E6B5A;
+	.mainLeftBox{
+	float: left;
+	width: 355px;
+	height: 817px;
+	background-color: #7E6B5A;
 
-            .leftTitle{
-                width: 131px;
-                height: 432px;
-                margin: 78px auto;
+		.leftTitle{
+			width: 131px;
+			height: 432px;
+			margin: 78px auto;
 
-                .leftContent{
-                    width: 100%;
-                    height: 136px;
-                    color: white;
-                    font-family: DungGeunMo;
-                    font-size: 22px;
-                    text-align: center;
-                }
-                .textFocus{
-                    color: #A0A0A0;
-                }
-            }
-        }
-        .mainRightBox{
-            float: left;
-            width: 1402px;
-            height: 730px;
-            background-color: yellow;
+			.leftContent{
+				width: 100%;
+				height: 136px;
+				color: white;
+				font-family: DungGeunMo;
+				font-size: 22px;
+				text-align: center;
+			}
+			.textFocus{
+				color: #A0A0A0;
+			}
+		}
+	}
+	
+	.mainRightBox{
+		position: relative;
+		left: 4.7%;
+		float: left;
+		width: 1402px;
+		height: 730px;
 
-            .rightTopBox{
-                width: 100%;
-                height: 78px;
+			.rightTopBox{
+				width: 100%;
+				height: 78px;
 
-                .rightTopMenu{
-                    float: left;
-                    width: 238px;
-                    height: 78px;
-                    font-family: DungGeunMo;
-                    font-size: 24px;
-                    text-align: right;
-                    line-height: 80px;
-                }
-                .focus{
-                    border-right: 70px solid transparent;
+				.rightTopMenu{
+					float: left;
+					width: 238px;
+					height: 78px;
+					font-family: DungGeunMo;
+					font-size: 24px;
+					text-align: right;
+					line-height: 80px;
+				}
+
+				.focus{
+					border-right: 70px solid transparent;
 					border-bottom: 78px solid white;
-                }
-                .unfocus{
-                    color: #A0A0A0;
-                    border-right: 70px solid transparent;
+				}
+		
+				.unfocus{
+					color: #A0A0A0;
+					border-right: 70px solid transparent;
 					border-bottom: 78px solid #F5F5F5;
-                }
-            }
-            .rightContentBox{
-                float: left;
-                width: 100%;
-                height: 652px;
-                background-color: white;
-            }
-        }
-    }
+				}
+			}
+			
+			.rightContentBox {
+				float: left;
+				width: 100%;
+				height: 652px;
+        background-color: white;
+        z-index: 2;
+			}
+		}
+	}
 }

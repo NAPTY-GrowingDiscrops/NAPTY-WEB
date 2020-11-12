@@ -15,7 +15,9 @@ body{
 }
 
 .bottom {
+  float: left;
     width: 100%;
+    min-width: 1900px;
     height: 338px;
     background-color: #59493F;
 
@@ -25,8 +27,6 @@ body{
         padding-top: 125px;
         padding-left: 164px;
 
-        background-color: darkgreen;
-        
         .name {
             font-family: Roboto;
             font-style: normal;
