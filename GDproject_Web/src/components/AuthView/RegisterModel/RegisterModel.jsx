@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import SERVER from '../../../store/config';
 import logo from '../logo_white.png';
+import check from './Check.svg';
+import x from './X.svg';
 
 import './RegisterModel.scss';
 
@@ -177,7 +179,12 @@ const RegisterPage = () => {
 
 				<div className='input_boxes'>
 					<p className='input_boxes_text'>이름</p>
-					<input className='input_boxes_input' style={CheckName ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
+					<div className='input_boxes_inputForm' style={CheckName ? {border: '2px solid green'} : {border: '2px solid red'}} >
+						<input className='input_boxes_input' type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
+						<div className='check_logo'>
+							<embed className={CheckName ? 'input_Check_logo' : 'input_X_logo'} src={CheckName?x:check} alt='X.svg' />
+						</div>
+					</div>
 				</div>
 
 				<div className='input_boxes'>
