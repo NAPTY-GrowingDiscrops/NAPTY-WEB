@@ -9,20 +9,19 @@ const login = async (req, res) => {
 
     try {
 
-        if (!(body.id) && !(body.pw)) {
+        if (!(body.email) && !(body.pw)) {
             return res.status(400).json({
                 message: "ID나 비밀번호를 입력해주세요",
             });
         }
 
         const data = {
-            id: encrypt(body.id),
             pw: encrypt(body.pw),
         };
 
         const user = await models.User.findOne({
             where: {
-                id: data.id,
+                email: body.email,
                 pw: data.pw,
             },
         });

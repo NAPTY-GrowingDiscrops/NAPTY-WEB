@@ -186,7 +186,16 @@ const RegisterPage = () => {
 						</div>
 					</div>
 				</div>
-
+        
+        <div className='input_boxes'>
+					<p className='input_boxes_text'>이메일</p>
+					<div className='input_boxes_inputForm' style={CheckName ? {border: '2px solid green'} : {border: '2px solid red'}} >
+						<input className='input_boxes_input' type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
+						<div className='check_logo'>
+              <img className={CheckName?'input_Check_logo':'input_X_logo'} src={CheckName?check:x} alt='/' />
+						</div>
+					</div>
+				</div>
 				<div className='input_boxes'>
 					<p className='input_boxes_text'>아이디</p>
 					<input className='input_boxes_input' style={CheckId ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={id} onChange={e => setId(e.target.value)} onBlur={e => idCheck()} />

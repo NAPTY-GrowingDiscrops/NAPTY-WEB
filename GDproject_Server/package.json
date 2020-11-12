@@ -11,6 +11,7 @@
     "mysql2": "^2.2.5",
     "nodemailer": "^6.4.14",
     "nodemailer-smtp-transport": "^2.7.4",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "uuid": "^8.3.1"
   }
 }

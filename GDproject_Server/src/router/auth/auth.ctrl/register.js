@@ -1,10 +1,11 @@
  const models = require('../../../../models');
  const encrypt = require('../../../config/encrypt');
- 
+ const { v4: uuidv4} = require('uuid');
+
  const register = async (req, res) => {
     const { body }  = req;
 
-    if (!(body.id) || !(body.pw) || !(body.name) || !(body.email)) {
+    if (!(body.pw) || !(body.name) || !(body.email)) {
         return res.status(401).json({
             message: "하나라도 입력되지 않은 항목이 있습니다",
         });
@@ -13,7 +14,7 @@
     try {
 
         const data = {
-            id: encrypt(body.id),
+            id: uuidv4(),
             pw: encrypt(body.pw),
             name: body.name,
             email: body.email,
