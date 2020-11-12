@@ -1,5 +1,8 @@
 import React from 'react';
 import './ViewBottom.scss';
+import lab from './img/lab_icon.png';
+import plask from './img/plask.png';
+import player from './img/player_face.png';
 
 const ViewBottom = () => {
     return (
@@ -13,7 +16,9 @@ const ViewBottom = () => {
                 </div>
             </div>
             <div className="iconBox">
-                
+                <img src={plask} alt="plask"/>
+                <img className="plask" src={player} alt="player"/>
+                <img className="lab" src={lab} alt="lab"/>
             </div>
         </div>
     );
