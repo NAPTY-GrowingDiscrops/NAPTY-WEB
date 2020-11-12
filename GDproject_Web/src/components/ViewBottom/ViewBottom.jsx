@@ -12,6 +12,9 @@ const ViewBottom = () => {
                 OYOO의 첫번째 작품 병작물 키우기 입니다.
                 </div>
             </div>
+            <div className="iconBox">
+                
+            </div>
         </div>
     );
 }
