@@ -13,8 +13,6 @@ const RegisterPage = () => {
 
 	const [name, setName] = useState('');
 	const [CheckName, setCheckName] = useState(false);
-	const [id, setId] = useState('');
-	const [CheckId, setCheckId] = useState(false);
 	const [pw, setPw] = useState('');
 	const [CheckPw, setCheckPw] = useState(false);
 	const [pwCheck, setPwCheck] = useState('');
@@ -44,30 +42,7 @@ const RegisterPage = () => {
 			setCheckName(false);
 		}
 	}
-	
-	const idCheck = async () => {
-		if (id) {
-			try {
-				await axios.post(`${SERVER}/auth/register/idCheck`, {
-					id
-				});
-				setCheckId(true);
-			} catch (err) {
-				switch (err.response.status) {
-					case 401:
-						alert('이미 있는 아이디입니다');
-						break;
-					default:
-						console.log(err);
-						alert('서버 오류');
-				}
-				setCheckId(false);
-			}
-		} else {
-			setCheckId(false);
-		}
-	}
-
+			
 	const pwNormalization = async () => {
 		if (pw) {
 			try {
@@ -134,10 +109,6 @@ const RegisterPage = () => {
 			alert('이름을 다시 확인해주세요.');
 			return ;
 		}
-		if (!CheckId) {
-			alert('ID를 다시 확인해주세요.');
-			return;
-		}
 		if (!CheckPw) {
 			alert('비밀번호를 다시 확인해주세요.');
 			return;
@@ -152,7 +123,7 @@ const RegisterPage = () => {
 		}
 		try {
 			await axios.post(`${SERVER}/auth/register/`, {
-				id, pw, name, email
+				pw, name, email
 			});
 			alert('회원가입 성공! 가입할 때 사용한 메일로 인증해주세요');
 			await axios.post(`${SERVER}/auth/email/mailVerify`, {
@@ -177,7 +148,7 @@ const RegisterPage = () => {
 					<Link to='' onClick={() => {window.location.href='/'}}><img className='logo_img' src={logo} alt="Logo" /></Link>
 				</div>
 
-				<div className='input_boxes'>
+				<div className='input_boxes' style={{ marginTop: "90px"}}>
 					<p className='input_boxes_text'>이름</p>
 					<div className='input_boxes_inputForm' style={CheckName ? {border: '2px solid green'} : {border: '2px solid red'}} >
 						<input className='input_boxes_input' type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
@@ -189,31 +160,32 @@ const RegisterPage = () => {
         
         <div className='input_boxes'>
 					<p className='input_boxes_text'>이메일</p>
-					<div className='input_boxes_inputForm' style={CheckName ? {border: '2px solid green'} : {border: '2px solid red'}} >
-						<input className='input_boxes_input' type="text" value={name} onChange={e => setName(e.target.value)} onBlur={e => nameCheck()} />
+					<div className='input_boxes_inputForm' style={CheckEmail ? {border: '2px solid green'} : {border: '2px solid red'}} >
+						<input className='input_boxes_input' type="text" value={email} onChange={e => setEmail(e.target.value)} onBlur={e => emailCheck()} />
 						<div className='check_logo'>
-              <img className={CheckName?'input_Check_logo':'input_X_logo'} src={CheckName?check:x} alt='/' />
+              <img className={CheckEmail?'input_Check_logo':'input_X_logo'} src={CheckEmail?check:x} alt='/' />
 						</div>
 					</div>
 				</div>
-				<div className='input_boxes'>
-					<p className='input_boxes_text'>아이디</p>
-					<input className='input_boxes_input' style={CheckId ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={id} onChange={e => setId(e.target.value)} onBlur={e => idCheck()} />
-				</div>
 
-				<div className='input_boxes'>
+        <div className='input_boxes'>
 					<p className='input_boxes_text'>비밀번호</p>
-					<input className='input_boxes_input' style={CheckPw ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={pw} onChange={e => setPw(e.target.value)} onBlur={e => pwNormalization()} />
-				</div>
+					<div className='input_boxes_inputForm' style={CheckPw ? {border: '2px solid green'} : {border: '2px solid red'}} >
+						<input className='input_boxes_input' type="text" value={pw} onChange={e => setPw(e.target.value)} onBlur={e => pwNormalization()} />
+						<div className='check_logo'>
+              <img className={CheckPw?'input_Check_logo':'input_X_logo'} src={CheckPw?check:x} alt='/' />
+						</div>
+					</div>
+				</div> 
 
-				<div className='input_boxes'>
+        <div className='input_boxes'>
 					<p className='input_boxes_text'>비밀번호 확인</p>
-					<input className='input_boxes_input' style={CheckPwCheck ? {border: '2px solid green'} : {border: '2px solid red'}} type="text" value={pwCheck} onChange={e => setPwCheck(e.target.value)} onBlur={e => pwRecheck()} />	
-				</div>
-
-				<div className='input_boxes'>
-					<p className='input_boxes_text'>이메일</p>
-					<input className='input_boxes_input' style={CheckEmail ? {border: '2px solid green'} : {border: '2px solid red'}} type="email" value={email} onChange={e => setEmail(e.target.value)} onBlur={e => emailCheck()} />		
+					<div className='input_boxes_inputForm' style={CheckPwCheck ? {border: '2px solid green'} : {border: '2px solid red'}} >
+						<input className='input_boxes_input' type="text" value={pwCheck} onChange={e => setPwCheck(e.target.value)} onBlur={e => pwRecheck()} />
+						<div className='check_logo'>
+              <img className={CheckPwCheck?'input_Check_logo':'input_X_logo'} src={CheckPwCheck?check:x} alt='/' />
+						</div>
+					</div>
 				</div>
 
 				<div className='button_div'>

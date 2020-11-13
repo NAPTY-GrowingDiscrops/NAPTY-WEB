@@ -10,18 +10,18 @@ import './MainLoginModel.scss';
 
 const MainLogin = ({ setIsLogin }) => {
 
-	const [id, setId] = useState('');
+	const [email, setEmail] = useState('');
 	const [pw, setPw] = useState('');
-	let token = {};
+	let token = ('');
 
 	const login = async () => { 
 		try {
 			const login = await axios.post(`${SERVER}/auth/login`, {
-				id, pw
+				email, pw
 			});
-			token = login.data.token;
+			token = login.data.token.token;
 		} catch (err) {
-			setId('');                     
+			setEmail('');                     
 			setPw('');
 			switch (err.response.status) {
 				case 400:
@@ -39,11 +39,11 @@ const MainLogin = ({ setIsLogin }) => {
 
 		try {
 			await axios.post(`${SERVER}/auth/login/verifyCheck`, {
-				id 
+				token
 			});
 			alert('로그인 성공!');
 		} catch (err) {
-			setId('');
+			setEmail('');
 			setPw('');
 			switch (err.response.status) {
 				case 401:
@@ -55,10 +55,10 @@ const MainLogin = ({ setIsLogin }) => {
 			return ;
 		}
 
-		setToken(token.token);
+		setToken(token);
 
-		token = {};
-		setId('');
+		token = '';
+		setEmail('');
 		setPw('');
 		setIsLogin(true);
 
@@ -68,7 +68,7 @@ const MainLogin = ({ setIsLogin }) => {
 		<div className='LoginBox'>
 			<button className="loginBtn" onClick={e => login()}>로그인</button>
 			<div className='loginInputBox'>
-				<input style={{ marginBottom: '10px' }} className='loginInput' type='text' placeholder='아이디' value={id} onChange={e => setId(e.target.value)} /> <br/>
+				<input style={{ marginBottom: '10px' }} className='loginInput' type='text' placeholder='' value={email} onChange={e => setEmail(e.target.value)} /> <br/>
 				<input className='loginInput' type='password' placeholder='비밀번호' value={pw} onChange={e => setPw(e.target.value)}/> <br />
 			</div>
 			<div className='boxes_ment'>

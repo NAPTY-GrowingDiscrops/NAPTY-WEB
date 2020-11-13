@@ -5,6 +5,12 @@ const nameCheck = async (req, res) => {
 
     try {
 
+        if (body.name.length >= 8) {
+          return res.status(403).json({
+            message: "닉네임은 7자리 이하여야 합니다.",
+          });
+        }
+
         const name = await models.User.findOne({
             where: {
                 name: body.name,

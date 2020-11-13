@@ -1,29 +1,34 @@
 const models = require('../../../../models');
+const secretObjA = require('../../../config/jwtAuth');
+
+const jwt = require('jsonwebtoken');
 
 const verifyCheck = async (req, res) => {
     const { body } = req;
 
-    if(!(body.email)) {
+    if(!(body)) {
         return res.status(400).json({
-            message: "이메일이 입력되지 않았습니다",
+            message: "토큰이 입력되지 않았습니다",
         });
     }
 
     try {
+      const token = body.token;
+      const decoded = jwt.verify(token, secretObjA.secret);
 
-        const check = await models.User.findOne({
+        const user = await models.User.findOne({
             where: {
-                email: body.email,
+                id: decoded.id,
             },
         });
 
-        if (!check) {
+        if (!user) {
             return res.status(401).json({
                 message: "email을 잘못 입력하였습니다.",
             });
         }
 
-        if (check.emailReq === false) {
+        if (user.emailReq === false) {
             return res.status(401).json({
                 message: "이메일 인증이 되지 않은 계정입니다.",
             });

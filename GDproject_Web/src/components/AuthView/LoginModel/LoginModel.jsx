@@ -11,12 +11,12 @@ import './LoginModel.scss'
 
 const LoginModel = ({ setIsLogin, setIsRegister }) => {
 
-  const [id, setId] = useState('');
+  const [email, setEmail] = useState('');
   const [pw, setPw] = useState(''); 
-  let token = {};
+  let token = ('');
 
   const login = async () => {
-    if (!id) {
+    if (!email) {
       alert('아이디를 확인해주세요');
       return ;
     }
@@ -26,18 +26,18 @@ const LoginModel = ({ setIsLogin, setIsRegister }) => {
     }
     try {
       const login = await axios.post(`${SERVER}/auth/login`, {
-        id, pw
+        email, pw
       });
-      token = login.data.token;
+      token = login.data.token.token;
     } catch (err) {
-      setId('');
+      setEmail('');
       setPw('');
       switch(err.response.status) {
         case 400:
           alert('아이디 혹은 비밀번호를 입력하지 않았습니다');
           break;
         case 401:
-          alert('ID나 비밀번호를 확인해주세요');
+          alert('email이나 비밀번호를 확인해주세요');
           break;
         default:
           console.log(err);
@@ -48,11 +48,11 @@ const LoginModel = ({ setIsLogin, setIsRegister }) => {
 
     try {
 			await axios.post(`${SERVER}/auth/login/verifyCheck`, {
-				id 
+				token,
 			});
 			alert('로그인 성공!');
 		} catch (err) {
-			setId('');
+			setEmail('');
 			setPw('');
 			switch (err.response.status) {
 				case 401:
@@ -64,10 +64,10 @@ const LoginModel = ({ setIsLogin, setIsRegister }) => {
 			return ;
 		}
 
-		setToken(token.token);
+		setToken(token);
 
-		token = {};
-		setId('');
+		token = ('');
+		setEmail('');
 		setPw('');
     setIsLogin(true);
     
@@ -82,8 +82,8 @@ const LoginModel = ({ setIsLogin, setIsRegister }) => {
 
         <div className='input_boxes'>
         
-          <p className='input_boxes_text'>아이디</p>
-          <input className='input_boxes_input' type='text' value={id} onChange={e => setId(e.target.value)} />
+          <p className='input_boxes_text'>이메일</p>
+          <input className='input_boxes_input' type='text' value={email} onChange={e => setEmail(e.target.value)} />
 
           <p className='input_boxes_text' style={{ marginTop: '16px' }}>비밀번호</p>
           <input className='input_boxes_input' type='text' value={pw} onChange={e => setPw(e.target.value)} />

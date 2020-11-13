@@ -1,11 +1,13 @@
 import React from 'react';
 
+import img from './World.svg';
+
 import './WorldView.scss';
 
 const WorldView = () => {
   return (
     <div>
-      대충 세계관 설명
+      <embed src={img} alt='' />
     </div>
   )
 }
