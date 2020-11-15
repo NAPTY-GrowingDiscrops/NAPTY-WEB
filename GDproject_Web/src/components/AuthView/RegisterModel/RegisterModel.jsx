@@ -9,7 +9,7 @@ import x from './X.svg';
 
 import './RegisterModel.scss';
 
-const RegisterPage = () => {
+const RegisterPage = ({ setIsRegister }) => {
 
 	const [name, setName] = useState('');
 	const [CheckName, setCheckName] = useState(false);
@@ -31,7 +31,10 @@ const RegisterPage = () => {
 				switch (err.response.status) {
 					case 401:
 						alert('이미 있는 닉네임입니다');
-						break;
+            break;
+          case 403:
+            alert('닉네임은 7자리 이하여야 합니다.');
+            break;
 					default:
 						console.log(err);
 						alert('서버 오류');
@@ -125,10 +128,11 @@ const RegisterPage = () => {
 			await axios.post(`${SERVER}/auth/register/`, {
 				pw, name, email
 			});
-			alert('회원가입 성공! 가입할 때 사용한 메일로 인증해주세요');
+      alert('회원가입 성공! 가입할 때 사용한 메일로 인증해주세요');
+      setIsRegister(false);
 			await axios.post(`${SERVER}/auth/email/mailVerify`, {
 				email,
-			});
+      });
 		} catch (err) {
 			switch (err.response.status) {
 				case 401:
@@ -171,7 +175,7 @@ const RegisterPage = () => {
         <div className='input_boxes'>
 					<p className='input_boxes_text'>비밀번호</p>
 					<div className='input_boxes_inputForm' style={CheckPw ? {border: '2px solid green'} : {border: '2px solid red'}} >
-						<input className='input_boxes_input' type="text" value={pw} onChange={e => setPw(e.target.value)} onBlur={e => pwNormalization()} />
+						<input className='input_boxes_input' type="password" value={pw} onChange={e => setPw(e.target.value)} onBlur={e => pwNormalization()} />
 						<div className='check_logo'>
               <img className={CheckPw?'input_Check_logo':'input_X_logo'} src={CheckPw?check:x} alt='/' />
 						</div>
@@ -181,7 +185,7 @@ const RegisterPage = () => {
         <div className='input_boxes'>
 					<p className='input_boxes_text'>비밀번호 확인</p>
 					<div className='input_boxes_inputForm' style={CheckPwCheck ? {border: '2px solid green'} : {border: '2px solid red'}} >
-						<input className='input_boxes_input' type="text" value={pwCheck} onChange={e => setPwCheck(e.target.value)} onBlur={e => pwRecheck()} />
+						<input className='input_boxes_input' type="password" value={pwCheck} onChange={e => setPwCheck(e.target.value)} onBlur={e => pwRecheck()} />
 						<div className='check_logo'>
               <img className={CheckPwCheck?'input_Check_logo':'input_X_logo'} src={CheckPwCheck?check:x} alt='/' />
 						</div>

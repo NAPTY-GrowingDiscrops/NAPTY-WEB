@@ -32,7 +32,7 @@ body {
 		.leftTitle{
 			width: 131px;
 			height: 432px;
-			margin: 78px auto;
+      margin: 78px auto;
 
 			.leftContent{
 				width: 100%;
@@ -40,11 +40,16 @@ body {
 				color: white;
 				font-family: DungGeunMo;
 				font-size: 22px;
-				text-align: center;
-			}
+        text-align: center;
+      }
+
 			.textFocus{
 				color: #A0A0A0;
-			}
+      }
+      
+      .Content {
+        cursor: pointer;
+      }
 		}
 	}
 	
@@ -57,7 +62,7 @@ body {
 
 			.rightTopBox{
 				width: 100%;
-				height: 78px;
+        height: 78px;
 
 				.rightTopMenu{
 					float: left;
@@ -66,20 +71,24 @@ body {
 					font-family: DungGeunMo;
 					font-size: 24px;
 					text-align: right;
-					line-height: 80px;
+          line-height: 80px;
 				}
 
 				.focus{
 					border-right: 70px solid transparent;
-					border-bottom: 78px solid white;
+          border-bottom: 78px solid white;
 				}
 		
 				.unfocus{
 					color: #A0A0A0;
 					border-right: 70px solid transparent;
-					border-bottom: 78px solid #F5F5F5;
-				}
-			}
+          border-bottom: 78px solid #F5F5F5;
+        }
+        
+        .Content {
+          cursor: pointer;
+        }
+			} 
 			
 			.rightContentBox {
 				float: left;

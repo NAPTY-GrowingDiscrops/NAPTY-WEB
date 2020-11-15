@@ -41,9 +41,18 @@ const ViewTop = () => {
             <div className="menu">
               <div className="menuTop">
                 <div className="menuContent">
-                  <Link to='' className='menuContents' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게임정보</Link>
-                  <Link to='' className='menuContents' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게시판</Link>
-                  <Link to='' className='menuContents' style={{ marginRight: '0px'}} onClick={() => {alert('아직 구현이 안되어 있어요!')}}>고객센터</Link>
+                  <div className="menuContents_box">
+                    <Link to='' className='menuContents' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게임정보</Link>
+                  </div>
+
+                  <div className="menuContents_box">
+                    <Link to='' className='menuContents' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게시판</Link>
+                  </div>
+
+                  <div className="menuContents_box">
+                    <Link to='' className='menuContents' style={{ marginRight: '0px'}} onClick={() => {alert('아직 구현이 안되어 있어요!')}}>고객센터</Link>
+                  </div>
+                  
                   { isLogin ?
                     <div>
                       <button className="logout" onClick={() => {logout()}}>로그아웃</button>

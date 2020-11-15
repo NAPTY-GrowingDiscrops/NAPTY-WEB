@@ -86,14 +86,14 @@ const LoginModel = ({ setIsLogin, setIsRegister }) => {
           <input className='input_boxes_input' type='text' value={email} onChange={e => setEmail(e.target.value)} />
 
           <p className='input_boxes_text' style={{ marginTop: '16px' }}>비밀번호</p>
-          <input className='input_boxes_input' type='text' value={pw} onChange={e => setPw(e.target.value)} />
+          <input className='input_boxes_input' type='password' value={pw} onChange={e => setPw(e.target.value)} />
 
           <div className='boxes_ment'>
             <Link to='' className='menu_text' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>아이디 찾기</Link>
             <span className='menu_text'> | </span>
             <Link to='' className='menu_text' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>비밀번호 찾기</Link>
             <span className='menu_text'> | </span>
-            <Link to='/auth' className='menu_text' onClick={() => {setIsRegister(true)}}>회원가입</Link>
+            <span className='menu_text' onClick={() => {setIsRegister(true)}}>회원가입</span>
           </div>
 
         </div>

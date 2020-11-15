@@ -61,7 +61,7 @@ body{
                     border-left: 80px solid transparent;
                     border-bottom: 105px solid #7E6B5A;
 
-                    .menuContents{
+                    .menuContents_box{
                         float: left;
                         text-align: center;
                         line-height: 100px;
@@ -73,6 +73,11 @@ body{
                         color: white;
                         margin: 0 20px;
                         padding: 100px auto;
+
+                        .menuContents {
+                          text-decoration: none;
+                          color: white;
+                        }
                     }
                     .logout{
                         float: right;

@@ -21,8 +21,6 @@ const MainLogin = ({ setIsLogin }) => {
 			});
 			token = login.data.token.token;
 		} catch (err) {
-			setEmail('');                     
-			setPw('');
 			switch (err.response.status) {
 				case 400:
 					alert('아무것도 입력하지 않았습니다');
