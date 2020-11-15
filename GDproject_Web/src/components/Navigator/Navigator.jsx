@@ -7,7 +7,7 @@ import { decoded } from '../../lib/decoded';
 import './Navigator.scss';
 import logoPNG from '../../pages/MainPage/logo.png';
 
-const ViewTop = () => {
+const ViewTop = ({ gameInfo, setGameInfo, post, setPost, customerHelp, setCustomerHelp }) => {
 
 	const [isLogin, setIsLogin] = useState(false);
 	const [name, setName] = useState(false);
@@ -42,15 +42,15 @@ const ViewTop = () => {
               <div className="menuTop">
                 <div className="menuContent">
                   <div className="menuContents_box">
-                    <Link to='' className='menuContents' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게임정보</Link>
+                    <Link to='' className={gameInfo ? 'focus' : 'unfocus'} onClick={() => {setGameInfo(true)}}>게임정보</Link>
                   </div>
 
                   <div className="menuContents_box">
-                    <Link to='' className='menuContents' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게시판</Link>
+                    <Link to='' className={post ? 'focus' : 'unfocus'} onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게시판</Link>
                   </div>
 
                   <div className="menuContents_box">
-                    <Link to='' className='menuContents' style={{ marginRight: '0px'}} onClick={() => {alert('아직 구현이 안되어 있어요!')}}>고객센터</Link>
+                    <Link to='' className={customerHelp ? 'focus' : 'unfocus'} style={{ marginRight: '0px'}} onClick={() => {alert('아직 구현이 안되어 있어요!')}}>고객센터</Link>
                   </div>
                   
                   { isLogin ?

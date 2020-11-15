@@ -14,7 +14,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route path='/' exact={true} component={MainPage} isRegister={isRegister} setIsRegister={setIsRegister} />
-        <Route path='/subPage' component={SubPage} />
+        <Route path='/:subPage' component={SubPage} />
         <Route path='/auth/:bool' component={Auth} />
         <Redirect from='/auth' to={`/auth/${uuid.v4()}`} />
       </Switch>
