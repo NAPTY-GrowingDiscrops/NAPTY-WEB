@@ -52,7 +52,7 @@ const InfoView = () => {
           <div className="leftTitle">
             <div className={world ? "leftContent textFocus" : "leftContent"} onClick={() => setChagne(1)}><span className="Content">게임 세계관</span></div>
             <div className={control ? "leftContent textFocus" : "leftContent"} onClick={() => setChagne(2)}><span className="Content">게임 조작법</span></div>
-            <div className={illustrateBook ? "leftContent textFocus" : "leftContent"} onClick={() => setChagne(3)}><span className="Content">병작물 도감</span></div>
+            {/* <div className={illustrateBook ? "leftContent textFocus" : "leftContent"} onClick={() => setChagne(3)}><span className="Content">병작물 도감</span></div> */}
             <div className={introduce ? "leftContent textFocus" : "leftContent"} onClick={() => setChagne(4)}><span className="Content">개발자 소개</span></div>
           </div>
         </div>
@@ -61,7 +61,7 @@ const InfoView = () => {
           <div className="rightTopBox">
             <div className={world ? "rightTopMenu focus" : "rightTopMenu unfocus"} onClick={() => setChagne(1)}><span className="Content">게임 세계관</span></div>
             <div className={control ? "rightTopMenu focus" : "rightTopMenu unfocus"} onClick={() => setChagne(2)}><span className="Content">게임 조작법</span></div>
-            <div className={illustrateBook ? "rightTopMenu focus" : "rightTopMenu unfocus"} onClick={() => setChagne(3)}><span className="Content">병작물 도감</span></div>
+            {/* <div className={illustrateBook ? "rightTopMenu focus" : "rightTopMenu unfocus"} onClick={() => setChagne(3)}><span className="Content">병작물 도감</span></div> */}
             <div className={introduce ? "rightTopMenu focus" : "rightTopMenu unfocus"} onClick={() => setChagne(4)}><span className="Content">개발자 소개</span></div>
           </div>
 
