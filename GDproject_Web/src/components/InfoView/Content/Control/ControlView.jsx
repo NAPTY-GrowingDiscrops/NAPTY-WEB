@@ -1,11 +1,13 @@
 import React from 'react';
 
+import img from './Control.svg';
+
 import './ControlView.scss';
 
 const ControlView = () => {
 	return (
 		<div>
-			대충 조작법들
+      <embed src={img} alt='' />
 		</div>
 	)
 }
