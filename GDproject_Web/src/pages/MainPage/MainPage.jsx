@@ -57,7 +57,7 @@ const MainPage = () => {
 							<div className="menuContent">
 								<div className="menuBox">
 									<div className="menuMent">
-										<Link to='/gameInfo' className='menu_text' onClick={() => {window.location.href="/gameInfo"}}>게임정보</Link>
+										<Link to='/gameInfo' className='menu_text' onClick={() => {window.location.href="/sub/gameInfo"}}>게임정보</Link>
 										</div>
 									<div className="menuMent">
 										<Link to='' className='menu_text' onClick={() => {alert('아직 구현이 안되어 있어요!')}}>게시판</Link>
