@@ -1,5 +1,3 @@
-const models = require('../../../../models');
-
 const pwNormalization = async (req, res) => {
     const { body } = req;
     const pwCheck = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;

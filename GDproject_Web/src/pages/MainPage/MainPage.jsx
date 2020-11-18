@@ -7,7 +7,7 @@ import MainProfile from '../../components/MainView/MainProfile/MainProfile';
 import { getToken } from '../../lib/token';
 
 import logoPNG from './logo.png';
-import img1 from './Img/background.jpg';
+import img1 from './Img/background.png';
 // import arrowleft from './Img/arrowLeft.svg';
 import pumkin from './Img/pinkPumkinWeb.png';
 import download from './Img/download.png';

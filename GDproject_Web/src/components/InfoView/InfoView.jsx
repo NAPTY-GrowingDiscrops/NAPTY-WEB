@@ -29,10 +29,11 @@ const InfoView = () => {
         setIntroduce(false);
         break;
       case 3:
-        setWorld(false);
-        setControl(false);
-        setIllustrateBook(true);
-        setIntroduce(false);
+        alert('구현중 입니다');
+        // setWorld(false);
+        // setControl(false);
+        // setIllustrateBook(true);
+        // setIntroduce(false);
         break;
       case 4:
         setWorld(false);

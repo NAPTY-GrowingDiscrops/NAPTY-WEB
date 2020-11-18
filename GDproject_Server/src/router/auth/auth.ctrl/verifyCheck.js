@@ -8,7 +8,7 @@ const verifyCheck = async (req, res) => {
 
     if(!(body)) {
         return res.status(400).json({
-            message: "토큰이 입력되지 않았습니다",
+            message: "이메일이 입력되지 않았습니다",
         });
     }
 

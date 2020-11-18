@@ -16,7 +16,6 @@ router.post('/login/verifyCheck', verifyCheck);
 router.post('/register', register);
 router.post('/register/mailCheck', mailDupCheck);
 router.post('/register/nameCheck', nameCheck);
-router.post('/register/emailCheck', emailCheck);
 router.post('/register/pwNormalization', pwNormalization);
 
 router.post('/email/mailVerify', mailVerify);
